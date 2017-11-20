@@ -1,4 +1,14 @@
 <div class="container">
+  <div class="nav">
+  </div>
+  <div class="content">
+   <%= form_tag create_post_path(@user), multipart: true, class: "createpost", id: "post-form", remote: true do %>
+      <textarea name="content" id="content" cols="30" rows="5" placeholder="Type Your Blog"></textarea>
+      <button>Submit</button>
+    <% end %>
+  </div>
+
+<div class="container" id="all-post">
 <% if @posts.present? %>
 <% @posts.each do |post| %>
   <div class="content">
@@ -15,7 +25,7 @@
           </li>
           <li>
             <a href="#">
-              <i class="fa fa-comment-o"></i> 1 Comments
+              <i class="fa fa-comment-o"></i> <%= 'Comment'.pluralize(post.comments.count) %>
             </a>
           </li>
           <li>

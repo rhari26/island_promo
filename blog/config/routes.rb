@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   post '/post/:user_id/update/:id' => "posts#update", as: :update_post
   delete '/post/:user_id/delete/:id' => "posts#destroy", as: :destroy_post
 
-  get '/comment/:user_id/new' => "comments#new", as: :new_comment
-  get '/comment/:user_id/edit/:id' => "comments#edit", as: :edit_comment
-  post '/comment/:user_id/create' => "comments#create", as: :create_comment
-  post '/comment/:user_id/update/:id' => "comments#update", as: :update_comment
-  delete '/comment/:user_id/delete/:id' => "comments#destroy", as: :destroy_comment
+  get '/comment/:post_id/new' => "comments#new", as: :new_comment
+  get '/comment/:post_id/edit/:id' => "comments#edit", as: :edit_comment
+  post '/comment/:post_id/create' => "comments#create", as: :create_comment
+  post '/comment/:post_id/update/:id' => "comments#update", as: :update_comment
+  delete '/comment/:post_id/delete/:id' => "comments#destroy", as: :destroy_comment
 end

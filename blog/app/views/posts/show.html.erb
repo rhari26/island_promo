@@ -1,0 +1,47 @@
+<div class="container" id="all-post">
+<div class="content">
+  <div class="desc">
+    <h1><%= @post.user.email %></h1>
+    <p id="post_<%= @post.id %>"><%= @post.content %></p>
+
+    <div class="share">
+      <ul>
+        <li>
+          <a href="#">
+            <i class="fa fa-heart-o"></i> 569 Likes
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-comment-o"></i> <%= 'Comment'.pluralize(@post.comments.count) %>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-pencil-square-o"></i> Edit
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fa fa-trash-o "></i> Delete
+          </a>
+        </li>
+      </ul>
+      <%= form_tag create_comment_path(@post.id), multipart: true, class: "commentbox", id: "comment-form", remote: true do %>
+        <input type="text" placeholder="Type a comment" name="text" id="text" />
+        <button>Comment</button>
+      <% end %>
+    </div>
+    <div class="comment-section">
+     <% if @post.comments.present? %>
+     <% @post.comments.each do |c| %>
+      <h4 class="commentuser"><%= c.user.name %></h4>
+      <p class="text"><%= c.comment %><comment class=""></comment></p>
+      <span class="sub-text"><%= local_time_ago(c.created_at) %></span>
+     <% end %>
+     <% end %>
+    </div>
+  </div>
+</div>
+
+</div>

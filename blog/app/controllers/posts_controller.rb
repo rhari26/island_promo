@@ -15,6 +15,9 @@ before_action :set_post, only: [:show, :edit, :update, :destroy]
  def create
   @post = Post.new(content: params[:content], user_id: @user.id)
   @post.save
+  respond_to do |format|
+   format.js
+  end
  end
 
  def update

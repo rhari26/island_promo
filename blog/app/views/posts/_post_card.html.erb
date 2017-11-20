@@ -1,7 +1,7 @@
 <div class="content">
   <div class="desc">
     <h1><%= @post.user.email %></h1>
-    <p><%= @post.content %></p>
+    <p id="post_<%= @post.id %>"><%= @post.content %></p>
 
     <div class="share">
       <ul>
@@ -26,16 +26,19 @@
           </a>
         </li>
       </ul>
-      <form class="commentbox">
-        <input type="text" placeholder="Type a comment">
-        </input>
+      <%= form_tag create_comment_path(@post.id), multipart: true, class: "commentbox", id: "comment-form", remote: true do %>
+        <input type="text" placeholder="Type a comment" name="text" id="text" />
         <button>Comment</button>
-      </form>
+      <% end %>
     </div>
     <div class="comment-section">
-        <h4 class="commentuser">Anand Kumar</h4>
-        <p class="text">Best Blog Post <comment class=""></comment></p>
-        <span class="sub-text"><%= local_time_ago(@post.created_at) %></span>
-  </div>
+     <% if @post.comments.present? %>
+     <% @post.comments.each do |c| %>
+      <h4 class="commentuser"><%= c.user.name %></h4>
+      <p class="text"><%= c.comment %><comment class=""></comment></p>
+      <span class="sub-text"><%= local_time_ago(c.created_at) %></span>
+     <% end %>
+     <% end %>
+    </div>
   </div>
 </div>

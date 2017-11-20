@@ -1,0 +1,4 @@
+<%= form_tag update_post_path(@user, @post.id), multipart: true, class: "createpost", id: "post-form", remote: true do %>
+   <textarea name="content" id="content" cols="30" rows="5" placeholder="Type Your Blog"><%= @post.content %></textarea>
+   <button>Submit</button>
+ <% end %>

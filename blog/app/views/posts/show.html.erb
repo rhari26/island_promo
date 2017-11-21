@@ -1,7 +1,7 @@
 <div class="container" id="all-post">
 <div class="content">
   <div class="desc">
-    <h1><%= @post.user.email %></h1>
+    <h1><%= @post.user.name %></h1>
     <p id="post_<%= @post.id %>"><%= @post.content %></p>
 
     <div class="share">
@@ -32,7 +32,7 @@
         <button>Comment</button>
       <% end %>
     </div>
-    <div class="comment-section">
+    <div class="comment-section" id="add-comment">
      <% if @post.comments.present? %>
      <% @post.comments.each do |c| %>
       <h4 class="commentuser"><%= c.user.name %></h4>

@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,  skip: [:registrations, :sessions]
+  as :user do
+   get '/signin', to: 'users/sessions#new', as: :new_user_session
+   post 'login', to: 'users/sessions#create', as: :session_create
+   get '/signup/user', to: 'users/registrations#new', as: :new_user_registration
+   post '/register/user', to: 'users/registrations#create', as: :user_registration
+  end
   # get '/' => "posts#index", as: :root
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/post/:user_id' => "posts#index", as: :root
+  # root :to => "posts#index"
   get '/post/:user_id/new' => "posts#new", as: :new_post
   get '/post/:user_id/edit/:id' => "posts#edit", as: :edit_post
+  get '/post/:user_id/show/:id' => "posts#show", as: :show_post
   post '/post/:user_id/create' => "posts#create", as: :create_post
   post '/post/:user_id/update/:id' => "posts#update", as: :update_post
   delete '/post/:user_id/delete/:id' => "posts#destroy", as: :destroy_post

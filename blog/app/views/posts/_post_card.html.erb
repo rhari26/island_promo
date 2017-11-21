@@ -1,6 +1,6 @@
 <div class="content">
   <div class="desc">
-    <h1><%= @post.user.email %></h1>
+    <h1><%= @post.user.name %></h1>
     <p id="post_<%= @post.id %>"><%= @post.content %></p>
 
     <div class="share">
@@ -11,14 +11,14 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <%=link_to show_post_path(@user.id, @post.id) do %>
             <i class="fa fa-comment-o"></i> <%= 'Comment'.pluralize(@post.comments.count) %>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="#">
+          <%=link_to edit_post_path(@user.id, @post.id), remote: true do %>
             <i class="fa fa-pencil-square-o"></i> Edit
-          </a>
+          <% end %>
         </li>
         <li>
           <a href="#">
@@ -26,14 +26,10 @@
           </a>
         </li>
       </ul>
-      <%= form_tag create_comment_path(@post.id), multipart: true, class: "commentbox", id: "comment-form", remote: true do %>
-        <input type="text" placeholder="Type a comment" name="text" id="text" />
-        <button>Comment</button>
-      <% end %>
     </div>
     <div class="comment-section">
      <% if @post.comments.present? %>
-     <% @post.comments.each do |c| %>
+     <% @post.comments.limit(2).each do |c| %>
       <h4 class="commentuser"><%= c.user.name %></h4>
       <p class="text"><%= c.comment %><comment class=""></comment></p>
       <span class="sub-text"><%= local_time_ago(c.created_at) %></span>

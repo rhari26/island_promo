@@ -3,14 +3,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+   build_resource({})
+    yield resource if block_given?
+    respond_with resource
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+   if params[:user][:password] == params[:user][:password_confirmation]
+    @user = User.new(name: params[:user][:name],
+                   email: params[:user][:email],
+                   password: params[:user][:password],
+                   password_confirmation: params[:user][:password_confirmation])
+    if @user.save
+     sign_in(User, @user)
+     redirect_to root_path(@user.id)
+    else
+     flash[:error] = @user.errors.full_messages
+    end
+   end
+  end
 
   # GET /resource/edit
   # def edit

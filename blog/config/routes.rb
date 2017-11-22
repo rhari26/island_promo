@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/post/:user_id/create' => "posts#create", as: :create_post
   post '/post/:user_id/update/:id' => "posts#update", as: :update_post
   delete '/post/:user_id/delete/:id' => "posts#destroy", as: :destroy_post
+  post '/post/like/:id' => "posts#like", as: :like_post
 
   get '/comment/:post_id/new' => "comments#new", as: :new_comment
   get '/comment/:post_id/edit/:id' => "comments#edit", as: :edit_comment

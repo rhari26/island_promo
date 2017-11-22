@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-before_action :set_user
-before_action :set_post, only: [:show, :edit, :update, :destroy]
+before_action :set_user, except: [:like]
+before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
 before_action :authenticate_user!
 
  def index
@@ -30,6 +30,13 @@ before_action :authenticate_user!
 
  def destroy
   @post.destroy
+  redirect_to root_path(current_user.id)
+ end
+
+ def like
+  if params[:id].present?
+   @like = Like.like_post(current_user, @post)
+  end
  end
 
  private

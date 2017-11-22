@@ -22,9 +22,11 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+   signed_in = signed_in?(resource_name)
+   sign_out(resource_name)
+   redirect_to home_path
+  end
 
   # protected
 

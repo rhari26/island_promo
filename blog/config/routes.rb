@@ -5,10 +5,11 @@ Rails.application.routes.draw do
    post 'login', to: 'users/sessions#create', as: :session_create
    get '/signup/user', to: 'users/registrations#new', as: :new_user_registration
    post '/register/user', to: 'users/registrations#create', as: :user_registration
+   delete '/bye', to: 'users/sessions#destroy', as: :destroy_user_session
   end
-  # get '/' => "posts#index", as: :root
+  get '/' => "posts#index", as: :home
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/post/:user_id' => "posts#index", as: :root
+  get 'post/:user_id' => "posts#index", as: :root
   # root :to => "posts#index"
   get '/post/:user_id/new' => "posts#new", as: :new_post
   get '/post/:user_id/edit/:id' => "posts#edit", as: :edit_post

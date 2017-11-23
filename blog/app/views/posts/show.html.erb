@@ -1,8 +1,10 @@
+<%= render 'users/header'%>
 <div class="container" id="all-post">
 <div class="content">
   <div class="desc">
     <h1><%= @post.user.name %></h1>
-    <p id="post_<%= @post.id %>"><%= @post.content %></p>
+    <span class="subtext"><%= local_time_ago(@post.created_at) %></span>
+    <p id="post_<%= @post.id %>" class="blog-dec"><%= @post.content %></p>
 
     <div class="share">
       <ul>
@@ -16,6 +18,7 @@
             <i class="fa fa-comment-o"></i> <%= 'Comment'.pluralize(@post.comments.count) %>
           </a>
         </li>
+        <% if @post.user.id == current_user.id %>
         <li>
          <%=link_to edit_post_path(@user.id, @post.id), remote: true do %>
            <i class="fa fa-pencil-square-o"></i> Edit
@@ -26,10 +29,12 @@
            <i class="fa fa-trash-o "></i> Delete
          <% end %>
         </li>
+        <% end %>
       </ul>
       <%= form_tag create_comment_path(@post.id), multipart: true, class: "commentbox", id: "comment-form", remote: true do %>
+      <p id="comment_err_msg"></p>
         <input type="text" placeholder="Type a comment" name="text" id="text" />
-        <button>Comment</button>
+        <button id="comment-submit">Comment</button>
       <% end %>
     </div>
     <div class="comment-section" id="add-comment">
@@ -45,3 +50,16 @@
 </div>
 
 </div>
+
+<script>
+$(document).on("click", "#comment-submit", function(e){
+ if($('#content').val() == "")
+ {
+  $('#comment_err_msg').html("Type something");
+  e.preventDefault();
+ }
+ else {
+  $('#comment_err_msg').html("");
+ }
+});
+</script>

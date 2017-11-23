@@ -1,3 +1,5 @@
-$('#all-post').prepend('<%= j render(:partial => "post_card", :locals => {user: @user, post: @post}) %>');
-$('#content').val("");
-// LocalTime.start();
+<% if params[:content].present? %>
+ $('#all-post').prepend('<%= j render(:partial => "post_card", :locals => {user: @user, post: @post}) %>');
+ $('#content').val("");
+ LocalTime.start();
+<% end %>

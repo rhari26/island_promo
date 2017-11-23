@@ -6,9 +6,38 @@ body {
   margin: auto;
   background: #f7f7f7;
 }
+header{
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+header .navbar{
+  padding: 10px 30%;
+  display: flex;
+  align-items:center;
+}
+header .navbar .name{
+  flex:1;
+  padding: 10px 0px;
+  text-decoration: none;
+  color: #56cbc9;
+  h1{
+   font-size: 20px;
+   margin: 0px;
+  }
+}
+header .navbar .logout{
+  padding: 10px 0px;
+  font-size: 15px;
+  text-decoration: none;
+  color: #000;
+}
 .container {
   overflow: hidden;
-  margin-top: 1.5%;
+  margin-top: 4.5%;
 }
 .content {
   margin: 10px auto;
@@ -44,10 +73,10 @@ body {
   margin-bottom: 5px;
 }
 .desc p {
-  margin-top: 20px;
+  margin-top: 10px;
   line-height: 1.5em;
-  color: #999;
-  font-weight: 300;
+  color: #585858;
+  font-weight: 400;
 }
 .desc a {
   color: #EA6060;
@@ -60,6 +89,10 @@ body {
 .share {
   margin-top: 5%;
 }
+.share ul{
+  margin: 0;
+  padding: 0;
+}
 .share li {
   display: inline-block;
   margin-right: 5%;
@@ -67,6 +100,8 @@ body {
 }
 .share a {
   color: #999;
+  font-size: 14px;
+  font-weight: 500;
   transition: 0.3s;
 }
 .share a i,
@@ -77,11 +112,12 @@ body {
   padding: 15px 0px;
 }
  .commentbox input {
-  width: 70%;
+  width: 100%;
   border: 1px solid #dedede;
   padding: 10px;
   font-size: 14px;
   color: #dcdcdc;
+  margin-bottom: 10px;
 }
  .commentbox button {
   padding: 10px 15px;
@@ -99,19 +135,28 @@ body {
   font-weight: 500;
     color: #000;
     padding: 3px 0px;
+    margin: 0;
   }
 .comment-section .text{
     font-size: 13px;
     color: #999;
     padding: 0px 0px;
+    margin: 0;
   }
 
 .comment-section .sub-text{
     font-size: 10px;
     color: #000;
   }
+.subtext{
+ font-size: 12px;
+ color: #aaa;
+}
 
-
+.blog-dec{
+ font-size: 14px;
+ color: #585858;
+}
 .createpost {
   padding: 15px 0px;
 }

@@ -7,8 +7,10 @@ class CommentsController < ApplicationController
  end
 
  def create
-  @comment = Comment.new(comment: params[:text], post_id: @post.id, user_id: current_user.id)
-  @comment.save
+  if params[:text].present?
+   @comment = Comment.new(comment: params[:text], post_id: @post.id, user_id: current_user.id)
+   @comment.save
+  end
  end
 
  def edit

@@ -1,11 +1,10 @@
+<%= render 'users/header'%>
 <div class="container">
-  <div class="nav">
-   <%= link_to "Logout", destroy_user_session_path(user_id: current_user.id), method: :delete %>
-  </div>
   <div class="content">
    <%= form_tag create_post_path(@user), multipart: true, class: "createpost", id: "post-form", remote: true do %>
-      <textarea name="content" id="content" cols="30" rows="5" placeholder="Type Your Blog"></textarea>
-      <button>Submit</button>
+    <p id="err_msg"></p>
+      <textarea name="content" id="content" cols="30" rows="5" placeholder="Wassup with today...." required></textarea>
+      <button id="submit">Submit</button>
     <% end %>
   </div>
 
@@ -17,3 +16,15 @@
  <% end %>
  <% end %>
 </div>
+<script>
+$(document).on("click", "#submit", function(e){
+ if($('#content').val() == "")
+ {
+  $('#err_msg').html("Type something");
+  e.preventDefault();
+ }
+ else {
+  $('#err_msg').html("");
+ }
+});
+</script>

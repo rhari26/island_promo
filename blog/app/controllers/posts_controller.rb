@@ -4,7 +4,7 @@ before_action :set_user, except: [:like]
 before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
 
  def index
-  @posts = Post.all
+  @posts = Post.all.order(created_at: :desc)
  end
 
  def new
@@ -14,15 +14,19 @@ before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
  end
 
  def create
-  @post = Post.new(content: params[:content], user_id: @user.id)
-  @post.save
-  respond_to do |format|
-   format.js
+  if params[:content].present?
+   @post = Post.new(content: params[:content], user_id: @user.id)
+   @post.save
+   respond_to do |format|
+    format.js
+   end
   end
  end
 
  def update
-  @post.update content: params[:content]
+  if params[:content].present?
+   @post.update content: params[:content]
+  end
  end
 
  def show

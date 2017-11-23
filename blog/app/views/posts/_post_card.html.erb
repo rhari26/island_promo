@@ -1,6 +1,7 @@
 <div class="content">
   <div class="desc">
     <h1><%= @post.user.name %></h1>
+    <span class="sub-text"><%= local_time_ago(@post.created_at) %></span>
     <p id="post_<%= @post.id %>"><%= @post.content %></p>
 
     <div class="share">

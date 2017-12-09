@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<!-- Mirrored from coderthemes.com/uplon/vertical/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2017 05:08:31 GMT -->
+<!-- Mirrored from coderthemes.com/uplon/horizontal/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Dec 2017 14:10:05 GMT -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +9,22 @@
 <meta name="author" content="Coderthemes">
 
 <!-- App Favicon -->
-<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico">
+<link rel="shortcut icon" href="<?php echo base_url()?>assets/images/favicon.ico">
 
 <!-- App title -->
 <title>Uplon - Responsive Admin Dashboard Template</title>
 
 <!-- Switchery css -->
-<link href="<?php echo base_url(); ?>assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+<link href="<?php echo base_url()?>assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
 
 <!-- Bootstrap CSS -->
-<link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 <!-- App CSS -->
-<link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" type="text/css" />
 
 <!-- Modernizr js -->
-<script src="<?php echo base_url(); ?>assets/js/modernizr.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/modernizr.min.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -40,34 +40,24 @@ ga('send', 'pageview');
 </head>
 
 
-<body class="fixed-left">
+<body>
 
-<!-- Begin page -->
-<div id="wrapper">
-
-
-<?php $this->load->view('top_bar'); ?>
-
-<?php $this->load->view('left_bar'); ?>
-
+<?php $this->load->view('top_bar') ?>
 
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
-<div class="content-page">
-<!-- Start content -->
-<div class="content">
-<div class="container-fluid">
+<div class="wrapper">
+<div class="container">
 
+<!-- Page-Title -->
 <div class="row">
-<div class="col-xl-12">
-<div class="page-title-box">
-<h4 class="page-title float-left">Campaign</h4>
+<div class="col-sm-12">
+<div class="btn-group pull-right m-t-15">
 
-
-<div class="clearfix"></div>
 </div>
+<h4 class="page-title">Campaign</h4>
 </div>
 </div>
 <!-- end row -->
@@ -81,6 +71,7 @@ ga('send', 'pageview');
 
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
+
  <?php echo form_open('options/add_campaign'); ?>
 <fieldset class="form-group">
 <label for="year">Year</label>
@@ -146,7 +137,7 @@ placeholder="Campaign Date" />
 <?php echo form_close(); ?>
 </div><!-- end col -->
 
-
+<!-- end col -->
 
 </div><!-- end row -->
 </div>
@@ -154,20 +145,19 @@ placeholder="Campaign Date" />
 </div>
 <!-- end row -->
 
+ 
+<!-- end row -->
+
 
 </div> <!-- container -->
 
-</div> <!-- content -->
 
+<!-- Footer -->
+<footer class="footer">
+2016 - 2017 © Uplon.
+</footer>
+<!-- End Footer -->
 
-
-</div>
-<!-- End content-page -->
-
-
-<!-- ============================================================== -->
-<!-- End Right content here -->
-<!-- ============================================================== -->
 
 
 <!-- Right Sidebar -->
@@ -191,47 +181,47 @@ Settings
 <div class="timeline-2">
 <div class="time-item">
 <div class="item-info">
-<small class="text-muted">5 minutes ago</small>
-<p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
+    <small class="text-muted">5 minutes ago</small>
+    <p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-<small class="text-muted">30 minutes ago</small>
-<p><a href="#" class="text-info">Lorem</a> commented your post.</p>
-<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+    <small class="text-muted">30 minutes ago</small>
+    <p><a href="#" class="text-info">Lorem</a> commented your post.</p>
+    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-<small class="text-muted">59 minutes ago</small>
-<p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+    <small class="text-muted">59 minutes ago</small>
+    <p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
+    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-<small class="text-muted">1 hour ago</small>
-<p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
+    <small class="text-muted">1 hour ago</small>
+    <p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-<small class="text-muted">3 hours ago</small>
-<p><a href="#" class="text-info">Lorem</a> commented your post.</p>
-<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+    <small class="text-muted">3 hours ago</small>
+    <p><a href="#" class="text-info">Lorem</a> commented your post.</p>
+    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-<small class="text-muted">5 hours ago</small>
-<p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+    <small class="text-muted">5 hours ago</small>
+    <p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
+    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 </div>
@@ -285,13 +275,11 @@ Settings
 </div>
 <!-- /Right-bar -->
 
-<footer class="footer text-right">
-2016 - 2017 © Uplon.
-</footer>
 
 
-</div>
-<!-- END wrapper -->
+</div> <!-- End wrapper -->
+
+
 
 
 <script>
@@ -299,23 +287,18 @@ var resizefunc = [];
 </script>
 
 <!-- jQuery  -->
-<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/popper.min.js"></script><!-- Tether for Bootstrap -->
-<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/detect.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/fastclick.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/jquery.blockUI.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/waves.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/jquery.slimscroll.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/switchery/switchery.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/jquery.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/popper.min.js"></script><!-- Tether for Bootstrap -->
+<script src="<?php echo base_url()?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url()?>assets/js/waves.js"></script>
+<script src="<?php echo base_url()?>assets/js/jquery.nicescroll.js"></script>
+<script src="<?php echo base_url()?>assets/plugins/switchery/switchery.min.js"></script>
 
 <!-- App js -->
-<script src="<?php echo base_url(); ?>assets/js/jquery.core.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/jquery.app.js"></script>
+<script src="<?php echo base_url()?>assets/js/jquery.core.js"></script>
+<script src="<?php echo base_url()?>assets/js/jquery.app.js"></script>
 
 </body>
 
-<!-- Mirrored from coderthemes.com/uplon/vertical/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Dec 2017 05:08:31 GMT -->
+<!-- Mirrored from coderthemes.com/uplon/horizontal/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Dec 2017 14:10:05 GMT -->
 </html>

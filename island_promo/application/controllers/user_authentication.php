@@ -126,6 +126,30 @@ class User_Authentication extends CI_Controller {
 
 	}
 
+	public function client()
+
+	{
+
+		$this->load->view("disp_pages/client");
+
+	}
+
+	public function package()
+
+	{
+
+		$this->load->view("disp_pages/package");
+
+	}
+
+	public function campaign()
+
+	{
+
+		$this->load->view("disp_pages/campaign");
+
+	}
+
 	public function add_campaign()
 
 	{

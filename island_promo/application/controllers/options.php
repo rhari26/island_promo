@@ -95,7 +95,7 @@ class Options extends CI_Controller {
                 'user_id' => $user['id']);
 
 
- $this->application->insert_client($data);
+ $this->application->insert_package($data);
 
  // redirect
 }

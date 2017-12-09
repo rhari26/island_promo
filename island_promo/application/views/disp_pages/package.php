@@ -42,7 +42,7 @@ ga('send', 'pageview');
 
 <body>
 
-<?php $this->load->view('top_bar') ?>
+<?php $this->load->view('top_bar'); ?>
 
 
 <!-- ============================================================== -->
@@ -71,29 +71,8 @@ ga('send', 'pageview');
 
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-	<?php echo form_open('options/add_package'); ?>
- <fieldset class="form-group">
- <label for="name">Name</label>
- <input type="text" class="form-control" id="name" name="name"
- placeholder="Name" />
- </fieldset>
-
- <fieldset class="form-group">
- <label for="description">Description</label>
- <textarea class="form-control" id="description"
- rows="3" name="description"></textarea>
- </fieldset>
-
- <fieldset class="form-group">
- <label for="amount">Amount</label>
- <input type="text" class="form-control" id="amount" name="amount"
- placeholder="Amount" />
- </fieldset>
-
-
-
-<button type="submit" class="btn btn-primary">Submit</button>
-<?php echo form_close(); ?>
+<!-- Anand Table view should come here -->
+ 
 </div><!-- end col -->
 
 <!-- end col -->

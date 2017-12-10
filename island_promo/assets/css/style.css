@@ -138,6 +138,9 @@ a {
 .nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
   background-color: #039cfd; }
 
+.margin-r15{
+  margin-right: 15px !important;
+}
 /*!
  * Waves v0.6.0
  * http://fian.my.id/Waves
@@ -305,7 +308,10 @@ File: Menu
     background-color: #ffffff; }
   #topnav .navbar-topbar .nav-link {
     padding: 0px;
-    line-height: 60px;
+    color: rgba(255, 255, 255, 0.6); }
+    #topnav .navbar-topbar .user-icon {
+    font-size: 36px !important;
+    line-height: 60px !important;
     color: rgba(255, 255, 255, 0.6); }
   #topnav .navbar-topbar .dropdown-toggle:after {
     content: initial; }

@@ -1,44 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<!-- Mirrored from coderthemes.com/uplon/horizontal/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Dec 2017 14:10:05 GMT -->
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-<meta name="author" content="Coderthemes">
-
-<!-- App Favicon -->
-<link rel="shortcut icon" href="<?php echo base_url()?>assets/images/favicon.ico">
-
-<!-- App title -->
-<title>Uplon - Responsive Admin Dashboard Template</title>
-
-<!-- Switchery css -->
-<link href="<?php echo base_url()?>assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
-
-<!-- Bootstrap CSS -->
-<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-<!-- App CSS -->
-<link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" type="text/css" />
-
-<!-- Modernizr js -->
-<script src="<?php echo base_url()?>assets/js/modernizr.min.js"></script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79190402-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-
-
-</head>
-
+<?php $this->load->view('head_bar') ?>
 
 <body>
 
@@ -69,14 +29,40 @@ ga('send', 'pageview');
 
 <h4 class="header-title m-t-0 m-b-30">Add Package</h4>
 
-<div class="row">
-<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-<!-- Anand Table view should come here -->
- 
-</div><!-- end col -->
-
-<!-- end col -->
-
+<div class="card-box">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+            <div class="p-20">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Package Name</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php if(!empty($packages)){ ?>
+                    <?php foreach($packages as $package){ ?>
+                    <tr>
+                        <th scope="row"><?php echo $package['id']; ?></th>
+                        <td><?php echo $package['name']; ?></td>
+                        <td><?php echo $package['description']; ?></td>
+                        <td><?php echo $package['amount']; ?></td>
+                        <th><a class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
+                    </tr>
+                    <?php } } ?>
+                    
+                    
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
 </div><!-- end row -->
 </div>
 </div><!-- end col -->
@@ -92,128 +78,9 @@ ga('send', 'pageview');
 
 <!-- Footer -->
 <footer class="footer">
-2016 - 2017 © Uplon.
+2016 - 2017 © Island Promotions.
 </footer>
 <!-- End Footer -->
-
-
-
-<!-- Right Sidebar -->
-<div class="side-bar right-bar">
-<div class="nicescroll">
-<ul class="nav nav-pills nav-justified text-xs-center">
-<li class="nav-item">
-<a href="#home-2"  class="nav-link active" data-toggle="tab" aria-expanded="false">
-Activity
-</a>
-</li>
-<li class="nav-item">
-<a href="#messages-2" class="nav-link" data-toggle="tab" aria-expanded="true">
-Settings
-</a>
-</li>
-</ul>
-
-<div class="tab-content">
-<div class="tab-pane fade active show" id="home-2">
-<div class="timeline-2">
-<div class="time-item">
-<div class="item-info">
-    <small class="text-muted">5 minutes ago</small>
-    <p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
-</div>
-</div>
-
-<div class="time-item">
-<div class="item-info">
-    <small class="text-muted">30 minutes ago</small>
-    <p><a href="#" class="text-info">Lorem</a> commented your post.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-</div>
-</div>
-
-<div class="time-item">
-<div class="item-info">
-    <small class="text-muted">59 minutes ago</small>
-    <p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-</div>
-</div>
-
-<div class="time-item">
-<div class="item-info">
-    <small class="text-muted">1 hour ago</small>
-    <p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
-</div>
-</div>
-
-<div class="time-item">
-<div class="item-info">
-    <small class="text-muted">3 hours ago</small>
-    <p><a href="#" class="text-info">Lorem</a> commented your post.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-</div>
-</div>
-
-<div class="time-item">
-<div class="item-info">
-    <small class="text-muted">5 hours ago</small>
-    <p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
-</div>
-</div>
-</div>
-</div>
-
-<div class="tab-pane fade" id="messages-2">
-
-<div class="row m-t-10">
-<div class="col-8">
-<h5 class="m-0">Notifications</h5>
-<p class="text-muted m-b-0"><small>Do you need them?</small></p>
-</div>
-<div class="col-4 text-right">
-<input type="checkbox" checked data-plugin="switchery" data-color="#1bb99a" data-size="small"/>
-</div>
-</div>
-
-<div class="row m-t-10">
-<div class="col-8">
-<h5 class="m-0">API Access</h5>
-<p class="m-b-0 text-muted"><small>Enable/Disable access</small></p>
-</div>
-<div class="col-4 text-right">
-<input type="checkbox" checked data-plugin="switchery" data-color="#1bb99a" data-size="small"/>
-</div>
-</div>
-
-<div class="row m-t-10">
-<div class="col-8">
-<h5 class="m-0">Auto Updates</h5>
-<p class="m-b-0 text-muted"><small>Keep up to date</small></p>
-</div>
-<div class="col-4 text-right">
-<input type="checkbox" checked data-plugin="switchery" data-color="#1bb99a" data-size="small"/>
-</div>
-</div>
-
-<div class="row m-t-10">
-<div class="col-8">
-<h5 class="m-0">Online Status</h5>
-<p class="m-b-0 text-muted"><small>Show your status to all</small></p>
-</div>
-<div class="col-4 text-right">
-<input type="checkbox" checked data-plugin="switchery" data-color="#1bb99a" data-size="small"/>
-</div>
-</div>
-
-</div>
-</div>
-</div> <!-- end nicescroll -->
-</div>
-<!-- /Right-bar -->
-
-
 
 </div> <!-- End wrapper -->
 

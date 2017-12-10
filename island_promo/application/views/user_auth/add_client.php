@@ -1,125 +1,80 @@
-<!DOCTYPE html>
-<html>
 
-<!-- Mirrored from coderthemes.com/uplon/horizontal/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Dec 2017 14:10:05 GMT -->
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-<meta name="author" content="Coderthemes">
-
-<!-- App Favicon -->
-<link rel="shortcut icon" href="<?php echo base_url()?>assets/images/favicon.ico">
-
-<!-- App title -->
-<title>Uplon - Responsive Admin Dashboard Template</title>
-
-<!-- Switchery css -->
-<link href="<?php echo base_url()?>assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
-
-<!-- Bootstrap CSS -->
-<link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-<!-- App CSS -->
-<link href="<?php echo base_url()?>assets/css/style.css" rel="stylesheet" type="text/css" />
-
-<!-- Modernizr js -->
-<script src="<?php echo base_url()?>assets/js/modernizr.min.js"></script>
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-79190402-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-
-
-</head>
-
+<?php $this->load->view('head_bar') ?>
 
 <body>
-
 <?php $this->load->view('top_bar') ?>
-
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 <div class="wrapper">
-<div class="container">
+    <div class="container">
 
-<!-- Page-Title -->
-<div class="row">
-<div class="col-sm-12">
-<div class="btn-group pull-right m-t-15">
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-group pull-right m-t-15">
 
-</div>
-<h4 class="page-title">Client</h4>
-</div>
-</div>
-<!-- end row -->
-
-
-<div class="row">
-<div class="col-12">
-<div class="card-box">
-
-<h4 class="header-title m-t-0 m-b-30">Add Client</h4>
-
-<div class="row">
-<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
- <?php echo form_open('options/add_client'); ?>
- <fieldset class="form-group">
- <label for="comp_name">Company Name</label>
- <input type="text" class="form-control" id="comp_name" name="comp_name"
- placeholder="Company Name" />
- </fieldset>
-
- <fieldset class="form-group">
- <label for="client_name">Client Name</label>
- <input type="text" class="form-control" id="client_name" name="client_name"
- placeholder="Client Name" />
- </fieldset>
-
- <fieldset class="form-group">
- <label for="email">Client Email</label>
- <input type="text" class="form-control" id="email" name="email"
- placeholder="Client Email" />
- </fieldset>
-
- <fieldset class="form-group">
- <label for="address">Address</label>
- <textarea class="form-control" id="address"
- rows="3" name="address"></textarea>
- </fieldset>
+                </div>
+                <h4 class="page-title">Client</h4>
+            </div>
+        </div>
+        <!-- end row -->
 
 
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
 
-<button type="submit" class="btn btn-primary">Submit</button>
-<?php echo form_close(); ?>
-</div><!-- end col -->
+                    <h4 class="header-title m-t-0 m-b-30">Add Client</h4>
 
-<!-- end col -->
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
+                            <?php echo form_open('options/add_client'); ?>
+                                 <fieldset class="form-group">
+                                     <label for="comp_name">Company Name</label>
+                                     <input type="text" class="form-control" id="comp_name" name="comp_name"
+                                     placeholder="Company Name" />
+                                 </fieldset>
 
-</div><!-- end row -->
-</div>
-</div><!-- end col -->
-</div>
-<!-- end row -->
+                                 <fieldset class="form-group">
+                                     <label for="client_name">Client Name</label>
+                                     <input type="text" class="form-control" id="client_name" name="client_name"
+                                     placeholder="Client Name" />
+                                 </fieldset>
 
- 
-<!-- end row -->
+                                 <fieldset class="form-group">
+                                     <label for="email">Client Email</label>
+                                     <input type="text" class="form-control" id="email" name="email"
+                                     placeholder="Client Email" />
+                                 </fieldset>
+
+                                 <fieldset class="form-group">
+                                     <label for="address">Address</label>
+                                     <textarea class="form-control" id="address"
+                                     rows="3" name="address"></textarea>
+                                 </fieldset>
 
 
-</div> <!-- container -->
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <?php echo form_close(); ?>
+                        </div><!-- end col -->
+
+                    <!-- end col -->
+
+                    </div><!-- end row -->
+                </div>
+            </div><!-- end col -->
+        </div>
+        <!-- end row -->
+    <!-- end row -->
+    </div> <!-- container -->
 
 
 <!-- Footer -->
 <footer class="footer">
-2016 - 2017 © Uplon.
+2016 - 2017 © Island Promotions.
 </footer>
 <!-- End Footer -->
 

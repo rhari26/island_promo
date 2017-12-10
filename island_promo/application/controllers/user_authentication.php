@@ -10,7 +10,7 @@ class User_Authentication extends CI_Controller {
 
 	$this->load->model('users');
 
-	// $this->load->model('application');
+	$this->load->model('application');
 
 	$this->load->helper('form');
 
@@ -76,8 +76,8 @@ class User_Authentication extends CI_Controller {
 		else
 
 		{
-			echo $result."ssssssssss";
-			// redirect();
+			// echo $result."ssssssssss";
+			redirect();
 
 		}
 
@@ -129,39 +129,51 @@ class User_Authentication extends CI_Controller {
 	public function client()
 
 	{
+		$user = $this->session->userdata('logged_in');
 
-		$this->load->view("disp_pages/client");
+		$data['clients'] = $this->application->get_clients($user['id']);
+
+		$this->load->view("disp_pages/client", $data);
 
 	}
 
 	public function package()
 
 	{
+		$user = $this->session->userdata('logged_in');
 
-		$this->load->view("disp_pages/package");
+		$data['packages'] = $this->application->get_packages($user['id']);
+
+
+		$this->load->view("disp_pages/package", $data);
 
 	}
 
 	public function campaign()
 
 	{
+		$user = $this->session->userdata('logged_in');
 
-		$this->load->view("disp_pages/campaign");
+		$data['campaigns'] = $this->application->get_campaign($user['id']);
+
+		$this->load->view("disp_pages/campaign", $data);
 
 	}
 
 	public function add_campaign()
 
 	{
+		$user = $this->session->userdata('logged_in');
+		$data['clients'] = $this->application->get_clients($user['id']);
 
-		$this->load->view("user_auth/add_campaign");
+		$this->load->view("user_auth/add_campaign", $data);
 
 	}
 
 	public function add_client()
 
 	{
-
+		
 		$this->load->view("user_auth/add_client");
 
 	}

@@ -28,7 +28,7 @@ class Options extends CI_Controller {
 
   		$client = $this->input->post('client');
 
-    $batch = $this->input->post('batch');
+    $month = $this->input->post('month');
 
     $po_no = $this->input->post('po_no');
 
@@ -42,7 +42,7 @@ class Options extends CI_Controller {
 
     $data = array('year' => $year,
                   'client_id' => $client,
-                  'batch_id' => $batch,
+                  'month' => $month,
                   'po_no' => $po_no,
                   'amount' => $amount,
                   'subject' => $subject,

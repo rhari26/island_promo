@@ -70,6 +70,16 @@ Class Users extends CI_Model {
 	}
 
 
+	public function get_user_data($id)
+	 {
+	 	$query = $this->db->query("select * from users where id = '".$id."'");
+
+			$result = $query->result_array();
+
+			return $result;
+	 }
+
+
 	
 
 }

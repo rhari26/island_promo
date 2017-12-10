@@ -75,34 +75,43 @@ ga('send', 'pageview');
  <?php echo form_open('options/add_campaign'); ?>
 <fieldset class="form-group">
 <label for="year">Year</label>
-<select multiple class="form-control" id="year" name="year">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<select class="form-control" id="year" name="year">
+<option value="">Select</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
 </select>
 </fieldset>
 
 <fieldset class="form-group">
-<label for="batch">Batch</label>
-<select multiple class="form-control" id="batch" name="batch">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<label for="month">Month</label>
+<select class="form-control" id="month" name="month">
+<option value="">Select</option>
+<option value="January">January</option>
+<option value="February">February</option>
+<option value="March">March</option>
+<option value="April">April</option>
+<option value="May">May</option>
+<option value="June">June</option>
+<option value="July">July</option>
+<option value="August">August</option>
+<option value="September">September</option>
+<option value="October">October</option>
+<option value="November">November</option>
+<option value="December">December</option>
 </select>
 </fieldset>
 
 <fieldset class="form-group">
 <label for="client">Client Name</label>
-<select multiple class="form-control" id="client" name="client">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
+<select class="form-control" id="client" name="client">
+<option value="">Select</option>
+<?php if(!empty($clients)){ ?>
+<?php foreach($clients as $client){ ?>
+<option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
+<?php } } ?>
 </select>
 </fieldset>
 
@@ -154,7 +163,7 @@ placeholder="Campaign Date" />
 
 <!-- Footer -->
 <footer class="footer">
-2016 - 2017 © Uplon.
+2016 - 2017 © Island Promotions.
 </footer>
 <!-- End Footer -->
 

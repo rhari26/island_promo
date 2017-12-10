@@ -97,5 +97,14 @@ Class Application extends CI_Model {
 
 		return $result;
  }
+
+ public function get_months()
+ {
+ 	$query = $this->db->query("select * from months");
+
+		$result = $query->result_array();
+
+		return $result;
+ }
 }
 ?>

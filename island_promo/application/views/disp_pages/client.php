@@ -42,7 +42,7 @@
                         <th scope="row"><?php echo $client['id']; ?></th>
                         <td><?php echo $client['client_name']; ?></td>
                         <td><?php echo $client['address']; ?></td>
-                        <th><a class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
+                        <th><a href="<?php echo site_url("edit/edit_client/".$client['id']); ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
                     </tr>
                     <?php } } ?>
                     

@@ -1,3 +1,4 @@
+<?php $this->load->view('session_page'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -154,7 +155,7 @@ placeholder="Campaign Date" />
 </div>
 <!-- end row -->
 
- 
+
 <!-- end row -->
 
 

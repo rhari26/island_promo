@@ -1,3 +1,4 @@
+<?php $this->load->view('session_page'); ?>
 <?php $this->load->view('head_bar') ?>
 
 <body>
@@ -51,12 +52,12 @@
                         <td><?php echo $package['name']; ?></td>
                         <td><?php echo $package['description']; ?></td>
                         <td><?php echo $package['amount']; ?></td>
-                        <th><a class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
+                        <th><a href="<?php echo site_url("edit/edit_package/".$package['id']); ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
                     </tr>
                     <?php } } ?>
-                    
-                    
-                    
+
+
+
                     </tbody>
                 </table>
             </div>
@@ -69,7 +70,7 @@
 </div>
 <!-- end row -->
 
- 
+
 <!-- end row -->
 
 

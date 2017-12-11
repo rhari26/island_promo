@@ -1,4 +1,4 @@
-
+<?php $this->load->view('session_page'); ?>
 <?php $this->load->view('head_bar') ?>
 
 <body>
@@ -30,7 +30,7 @@
 
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-                    <?php echo form_open('edit/edit_client/'.$id); ?>
+                    <?php echo form_open('edit/update_client/'.$id); ?>
                          <fieldset class="form-group">
                              <label for="comp_name">Company Name</label>
                              <input type="text" class="form-control" id="comp_name" name="comp_name"

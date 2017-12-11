@@ -1,3 +1,4 @@
+<?php $this->load->view('session_page'); ?>
 <?php $this->load->view('head_bar') ?>
 <link href="<?php echo base_url()?>assets/plugins/RWD-Table-Patterns/css/rwd-table.min.css" rel="stylesheet" type="text/css" media="screen">
 <body>
@@ -31,7 +32,7 @@
                         <th>#</th>
                         <th>Client Name</th>
                         <th>Address</th>
-                        
+
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -45,9 +46,9 @@
                         <th><a href="<?php echo site_url("edit/edit_client/".$client['id']); ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
                     </tr>
                     <?php } } ?>
-                    
-                    
-                    
+
+
+
                     </tbody>
                 </table>
             </div>

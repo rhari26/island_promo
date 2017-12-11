@@ -1,14 +1,5 @@
-<?php $tmp = $this->session->userdata('logged_in');
+<?php $this->load->view('session_page'); ?>
 
-if($tmp['id'] == "")
-
-{
-
-	redirect();
-
-}
-
- ?>
 <?php $this->load->view('head_bar') ?>
 
 <body>
@@ -482,6 +473,5 @@ if($tmp['id'] == "")
 
     <!-- Page specific js -->
     <script src="<?php echo base_url()?>assets/pages/jquery.dashboard.js"></script>
-	
-</body>
 
+</body>

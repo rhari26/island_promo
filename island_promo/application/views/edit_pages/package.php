@@ -1,75 +1,76 @@
 <?php $this->load->view('session_page'); ?>
 <?php $this->load->view('head_bar') ?>
 
+
 <body>
+
 <?php $this->load->view('top_bar') ?>
+
 
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 <div class="wrapper">
-    <div class="container">
+<div class="container">
 
-        <!-- Page-Title -->
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="btn-group pull-right m-t-15">
+<!-- Page-Title -->
+<div class="row">
+<div class="col-sm-12">
+<div class="btn-group pull-right m-t-15">
 
-                </div>
-                <h4 class="page-title">Client</h4>
-            </div>
-        </div>
-        <!-- end row -->
+</div>
+<h4 class="page-title">Package</h4>
+</div>
+</div>
+<!-- end row -->
 
 
-        <div class="row">
-            <div class="col-12">
-                <div class="card-box">
+<div class="row">
+<div class="col-12">
+<div class="card-box">
 
-                    <h4 class="header-title m-t-0 m-b-30">Add Client</h4>
+<h4 class="header-title m-t-0 m-b-30">Add Package</h4>
 
-                    <div class="row">
-                        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-                            <?php echo form_open('options/add_client'); ?>
-                                 <fieldset class="form-group">
-                                     <label for="comp_name">Company Name</label>
-                                     <input type="text" class="form-control" id="comp_name" name="comp_name"
-                                     placeholder="Company Name" />
-                                 </fieldset>
+<div class="row">
+<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
+	<?php echo form_open('edit/update_package/'.$id); ?>
+ <fieldset class="form-group">
+ <label for="name">Name</label>
+ <input type="text" class="form-control" id="name" name="name"
+ placeholder="Name" value="<?php echo $package[0]['name']; ?>" />
+ </fieldset>
 
-                                 <fieldset class="form-group">
-                                     <label for="client_name">Client Name</label>
-                                     <input type="text" class="form-control" id="client_name" name="client_name"
-                                     placeholder="Client Name" />
-                                 </fieldset>
+ <fieldset class="form-group">
+ <label for="description">Description</label>
+ <textarea class="form-control" id="description"
+ rows="3" name="description"><?php echo $package[0]['description']; ?></textarea>
+ </fieldset>
 
-                                 <fieldset class="form-group">
-                                     <label for="email">Client Email</label>
-                                     <input type="text" class="form-control" id="email" name="email"
-                                     placeholder="Client Email" />
-                                 </fieldset>
-
-                                 <fieldset class="form-group">
-                                     <label for="address">Address</label>
-                                     <textarea class="form-control" id="address"
-                                     rows="3" name="address"></textarea>
-                                 </fieldset>
+ <fieldset class="form-group">
+ <label for="amount">Amount</label>
+ <input type="text" class="form-control" id="amount" name="amount"
+ placeholder="Amount" value="<?php echo $package[0]['amount']; ?>" />
+ </fieldset>
 
 
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            <?php echo form_close(); ?>
-                        </div><!-- end col -->
+<button type="submit" class="btn btn-primary">Submit</button>
+<?php echo form_close(); ?>
+</div><!-- end col -->
 
-                    <!-- end col -->
+<!-- end col -->
 
-                    </div><!-- end row -->
-                </div>
-            </div><!-- end col -->
-        </div>
-        <!-- end row -->
-    <!-- end row -->
-    </div> <!-- container -->
+</div><!-- end row -->
+</div>
+</div><!-- end col -->
+</div>
+<!-- end row -->
+
+
+<!-- end row -->
+
+
+</div> <!-- container -->
 
 
 <!-- Footer -->

@@ -1,3 +1,4 @@
+<?php $this->load->view('session_page'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -72,7 +73,7 @@ ga('send', 'pageview');
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
 
- <?php echo form_open('options/add_campaign'); ?>
+ <?php echo form_open('edit/update_campaign/'.$id); ?>
 <fieldset class="form-group">
 <label for="year">Year</label>
 <select class="form-control" id="year" name="year">
@@ -103,7 +104,7 @@ ga('send', 'pageview');
 <select class="form-control" id="client" name="client">
 <option value="">Select</option>
 <?php if(!empty($clients)){ ?>
-<?php foreach($clients as $client){ 
+<?php foreach($clients as $client){
 if($client['id'] == $campaign[0]['client_id']){ ?>
 <option value="<?php echo $client['id']; ?>" selected><?php echo $client['client_name']; ?></option>
 <?php } else { ?>
@@ -151,7 +152,7 @@ placeholder="Campaign Date" value="<?php echo $campaign[0]['camp_date']; ?>" />
 </div>
 <!-- end row -->
 
- 
+
 <!-- end row -->
 
 

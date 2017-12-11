@@ -20,6 +20,24 @@ Class Application extends CI_Model {
 
  }
 
+ public function update_client($id, $data)
+ {
+  $this->db->where('id', $id);
+  $this->db->update('clients',$data);
+ }
+
+ public function update_campaign($id, $data)
+ {
+  $this->db->where('id', $id);
+  $this->db->update('campaign',$data);
+ }
+
+ public function update_package($id, $data)
+ {
+  $this->db->where('id', $id);
+  $this->db->update('packages',$data);
+ }
+
  public function get_packages($id)
  {
  	$user = $this->users->get_user_data($id);
@@ -27,7 +45,7 @@ Class Application extends CI_Model {
  	{
  		$query = $this->db->query("select * from packages order by id desc");
  	}
- 	else 
+ 	else
  	{
  		$query = $this->db->query("select * from packages where id ='".$id."' order by id desc");
  	}

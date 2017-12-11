@@ -1,3 +1,4 @@
+<?php $this->load->view('session_page'); ?>
 <?php $this->load->view('head_bar') ?>
 <body>
 
@@ -71,7 +72,7 @@
 </div>
 <!-- end row -->
 
- 
+
 <!-- end row -->
 
 

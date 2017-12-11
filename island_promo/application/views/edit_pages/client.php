@@ -50,6 +50,12 @@
                          </fieldset>
 
                          <fieldset class="form-group">
+                             <label for="discount">Discount</label>
+                             <input type="text" class="form-control" id="discount" name="discount"
+                             placeholder="Discount" value="<?php echo $client[0]['discount']; ?>" />
+                         </fieldset>
+
+                         <fieldset class="form-group">
                              <label for="address">Address</label>
                              <textarea class="form-control" id="address"
                              rows="3" name="address"><?php echo $client[0]['address']; ?></textarea>

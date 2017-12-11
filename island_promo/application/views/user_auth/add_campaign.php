@@ -73,7 +73,7 @@ ga('send', 'pageview');
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
 
- <?php echo form_open('options/add_campaign'); ?>
+ <?php echo form_open_multipart('options/add_campaign'); ?>
 <fieldset class="form-group">
 <label for="year">Year</label>
 <select class="form-control" id="year" name="year">
@@ -123,6 +123,12 @@ placeholder="PO No" />
 </fieldset>
 
 <fieldset class="form-group">
+<label for="sender">Sender Name</label>
+<input type="text" class="form-control" id="sender" name="sender"
+placeholder="Sender Name" />
+</fieldset>
+
+<fieldset class="form-group">
 <label for="amount">Amount</label>
 <input type="text" class="form-control" id="amount" name="amount"
 placeholder="Amount" />
@@ -138,6 +144,11 @@ placeholder="Subject" />
 <label for="camp_date">Campaign Date</label>
 <input type="date" class="form-control" id="camp_date" name="camp_date"
 placeholder="Campaign Date" />
+</fieldset>
+
+<fieldset class="form-group">
+<label for="image">Campaign Image</label>
+<input type="file" class="form-control" id="userfile" name="userfile" />
 </fieldset>
 
 

@@ -8,68 +8,74 @@
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 <div class="wrapper">
-    <div class="container">
+<div class="container">
 
-        <!-- Page-Title -->
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="btn-group pull-right m-t-15">
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="btn-group pull-right m-t-15">
 
-                </div>
-                <h4 class="page-title">Client</h4>
-            </div>
         </div>
-        <!-- end row -->
+        <h4 class="page-title">Client</h4>
+    </div>
+</div>
+<!-- end row -->
 
 
-        <div class="row">
-            <div class="col-12">
-                <div class="card-box">
+<div class="row">
+    <div class="col-12">
+        <div class="card-box">
 
-                    <h4 class="header-title m-t-0 m-b-30">Add Client</h4>
+            <h4 class="header-title m-t-0 m-b-30">Add Client</h4>
 
-                    <div class="row">
-                        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-                            <?php echo form_open('options/add_client'); ?>
-                                 <fieldset class="form-group">
-                                     <label for="comp_name">Company Name</label>
-                                     <input type="text" class="form-control" id="comp_name" name="comp_name"
-                                     placeholder="Company Name" />
-                                 </fieldset>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
+                    <?php echo form_open('options/add_client'); ?>
+                         <fieldset class="form-group">
+                             <label for="comp_name">Company Name</label>
+                             <input type="text" class="form-control" id="comp_name" name="comp_name"
+                             placeholder="Company Name" />
+                         </fieldset>
 
-                                 <fieldset class="form-group">
-                                     <label for="client_name">Client Name</label>
-                                     <input type="text" class="form-control" id="client_name" name="client_name"
-                                     placeholder="Client Name" />
-                                 </fieldset>
+                         <fieldset class="form-group">
+                             <label for="client_name">Client Name</label>
+                             <input type="text" class="form-control" id="client_name" name="client_name"
+                             placeholder="Client Name" />
+                         </fieldset>
 
-                                 <fieldset class="form-group">
-                                     <label for="email">Client Email</label>
-                                     <input type="text" class="form-control" id="email" name="email"
-                                     placeholder="Client Email" />
-                                 </fieldset>
+                         <fieldset class="form-group">
+                             <label for="email">Client Email</label>
+                             <input type="text" class="form-control" id="email" name="email"
+                             placeholder="Client Email" />
+                         </fieldset>
 
-                                 <fieldset class="form-group">
-                                     <label for="address">Address</label>
-                                     <textarea class="form-control" id="address"
-                                     rows="3" name="address"></textarea>
-                                 </fieldset>
+                         <fieldset class="form-group">
+                             <label for="discount">Discount</label>
+                             <input type="text" class="form-control" id="discount" name="discount"
+                             placeholder="Discount" />
+                         </fieldset>
+
+                         <fieldset class="form-group">
+                             <label for="address">Address</label>
+                             <textarea class="form-control" id="address"
+                             rows="3" name="address"></textarea>
+                         </fieldset>
 
 
 
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            <?php echo form_close(); ?>
-                        </div><!-- end col -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <?php echo form_close(); ?>
+                </div><!-- end col -->
 
-                    <!-- end col -->
+            <!-- end col -->
 
-                    </div><!-- end row -->
-                </div>
-            </div><!-- end col -->
+            </div><!-- end row -->
         </div>
-        <!-- end row -->
-    <!-- end row -->
-    </div> <!-- container -->
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+<!-- end row -->
+</div> <!-- container -->
 
 
 <!-- Footer -->
@@ -101,47 +107,47 @@ Settings
 <div class="timeline-2">
 <div class="time-item">
 <div class="item-info">
-    <small class="text-muted">5 minutes ago</small>
-    <p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
+<small class="text-muted">5 minutes ago</small>
+<p><strong><a href="#" class="text-info">John Doe</a></strong> Uploaded a photo <strong>"DSC000586.jpg"</strong></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-    <small class="text-muted">30 minutes ago</small>
-    <p><a href="#" class="text-info">Lorem</a> commented your post.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+<small class="text-muted">30 minutes ago</small>
+<p><a href="#" class="text-info">Lorem</a> commented your post.</p>
+<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-    <small class="text-muted">59 minutes ago</small>
-    <p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+<small class="text-muted">59 minutes ago</small>
+<p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
+<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-    <small class="text-muted">1 hour ago</small>
-    <p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
+<small class="text-muted">1 hour ago</small>
+<p><strong><a href="#" class="text-info">John Doe</a></strong>Uploaded 2 new photos</p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-    <small class="text-muted">3 hours ago</small>
-    <p><a href="#" class="text-info">Lorem</a> commented your post.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+<small class="text-muted">3 hours ago</small>
+<p><a href="#" class="text-info">Lorem</a> commented your post.</p>
+<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 
 <div class="time-item">
 <div class="item-info">
-    <small class="text-muted">5 hours ago</small>
-    <p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
-    <p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
+<small class="text-muted">5 hours ago</small>
+<p><a href="#" class="text-info">Jessi</a> attended a meeting with<a href="#" class="text-success">John Doe</a>.</p>
+<p><em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam laoreet tellus ut tincidunt euismod. "</em></p>
 </div>
 </div>
 </div>

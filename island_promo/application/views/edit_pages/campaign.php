@@ -120,6 +120,12 @@ placeholder ="PO No" value="<?php echo $campaign[0]['po_no']; ?>" />
 </fieldset>
 
 <fieldset class="form-group">
+<label for="sender">Sender Name</label>
+<input type="text" class="form-control" id="sender" name="sender"
+placeholder="Sender Name" value="<?php echo $campaign[0]['sender']; ?>" />
+</fieldset>
+
+<fieldset class="form-group">
 <label for="amount">Amount</label>
 <input type="text" class="form-control" id="amount" name="amount"
 placeholder="Amount" value="<?php echo $campaign[0]['amount']; ?>" />
@@ -135,6 +141,11 @@ placeholder="Subject" value="<?php echo $campaign[0]['subject']; ?>" />
 <label for="camp_date">Campaign Date</label>
 <input type="date" class="form-control" id="camp_date" name="camp_date"
 placeholder="Campaign Date" value="<?php echo $campaign[0]['camp_date']; ?>" />
+</fieldset>
+
+<fieldset class="form-group">
+<label for="image">Campaign Image</label>
+<input type="file" class="form-control" id="userfile" name="userfile" />
 </fieldset>
 
 

@@ -16,9 +16,11 @@ class Options extends CI_Controller {
 
 		// $this->load->library('session');
 
-		$this->load->helper('url');
+		// $this->load->helper('url');
 
 		$this->load->library('encrypt');
+
+		// $this->load->library('upload');
 
 		}
 
@@ -38,21 +40,41 @@ class Options extends CI_Controller {
 
 	    $camp_date = $this->input->post('camp_date');
 
+	    $sender = $this->input->post('sender');
+
 	    $user = $this->session->userdata('logged_in');
 
-	    $data = array('year' => $year,
+	    $filename = time().$month;
+
+	     $config['upload_path']   = './uploads/'; 
+         $config['allowed_types'] = 'gif|jpg|png'; 
+         $config['max_size']      = 2048000; 
+         $config['file_name'] = $filename;
+
+        $this->load->library('upload', $config);
+
+        $data = array('year' => $year,
 	                  'client_id' => $client,
 	                  'month' => $month,
 	                  'po_no' => $po_no,
 	                  'amount' => $amount,
 	                  'subject' => $subject,
 	                  'camp_date' => $camp_date,
+	                  'sender' => $sender,
 	                  'user_id' => $user['id']);
+        
 
+        if($this->upload->do_upload('userfile'))
+        {
+        	$img = $this->upload->data();
+        	
+        	$data['file'] = $filename;
+        }
+	    
+        $this->application->insert_campaign($data);
+	   
 
-	   $this->application->insert_campaign($data);
-
-	   redirect('user_authentication/campaign');
+	   // redirect('user_authentication/campaign');
 	  }
 
 	  public function add_client(){
@@ -65,12 +87,15 @@ class Options extends CI_Controller {
 
 	   $address = $this->input->post('address');
 
+	   $discount = $this->input->post('discount');
+
 	   $user = $this->session->userdata('logged_in');
 
 	   $data = array('client_name' => $client_name,
 	                 'comp_name' => $comp_name,
 	                 'email' => $email,
 	                 'address' => $address,
+	                 'discount' => $discount,
 	                 'user_id' => $user['id']);
 
 

@@ -4,162 +4,173 @@ class Options extends CI_Controller {
 
 
 
-		public function __construct() {
+public function __construct() {
 
-		parent::__construct();
+parent::__construct();
 
-		$this->load->model('users');
+$this->load->model('users');
 
-		$this->load->model('application');
+$this->load->model('application');
 
-		$this->load->helper('form');
+$this->load->helper('form');
 
-		// $this->load->library('session');
+// $this->load->library('session');
 
-		// $this->load->helper('url');
+// $this->load->helper('url');
 
-		$this->load->library('encrypt');
+$this->load->library('encrypt');
 
-		// $this->load->library('upload');
+// $this->load->library('upload');
 
-		}
+}
 
-	   public function add_campaign(){
+public function add_campaign(){
 
-	    $year = $this->input->post('year');
+$year = $this->input->post('year');
 
-	  		$client = $this->input->post('client');
+$client = $this->input->post('client');
 
-	    $month = $this->input->post('month');
+$month = $this->input->post('month');
 
-	    $po_no = $this->input->post('po_no');
+$po_no = $this->input->post('po_no');
 
-	    $amount = $this->input->post('amount');
+$amount = $this->input->post('amount');
 
-	    $subject = $this->input->post('subject');
+$subject = $this->input->post('subject');
 
-	    $camp_date = $this->input->post('camp_date');
+$camp_date = $this->input->post('camp_date');
 
-	    $sender = $this->input->post('sender');
+$sender = $this->input->post('sender');
 
-	    $user = $this->session->userdata('logged_in');
+$user = $this->session->userdata('logged_in');
 
-	    $filename = time().$month;
+$filename = time().$month;
 
-	     $config['upload_path']   = './uploads/';
-         $config['allowed_types'] = 'gif|jpg|png';
-         $config['max_size']      = 2048000;
-         $config['file_name'] = $filename;
+$config['upload_path']   = './uploads/';
+$config['allowed_types'] = 'gif|jpg|png';
+$config['max_size']      = 2048000;
+$config['file_name'] = $filename;
 
-        $this->load->library('upload', $config);
+$this->load->library('upload', $config);
 
-        $data = array('year' => $year,
-	                  'client_id' => $client,
-	                  'month' => $month,
-	                  'po_no' => $po_no,
-	                  'amount' => $amount,
-	                  'subject' => $subject,
-	                  'camp_date' => $camp_date,
-	                  'sender' => $sender,
-	                  'user_id' => $user['id']);
-
-
-        if($this->upload->do_upload('userfile'))
-        {
-        	$img = $this->upload->data();
-
-        	$data['file'] = $filename;
-        }
-
-        $this->application->insert_campaign($data);
+$data = array('year' => $year,
+'client_id' => $client,
+'month' => $month,
+'po_no' => $po_no,
+'amount' => $amount,
+'subject' => $subject,
+'camp_date' => $camp_date,
+'sender' => $sender,
+'user_id' => $user['id']);
 
 
-	   // redirect('user_authentication/campaign');
-	  }
+if($this->upload->do_upload('userfile'))
+{
+$img = $this->upload->data();
 
-	  public function add_client(){
+$data['file'] = $filename;
+}
 
-	   $client_name = $this->input->post('client_name');
-
-	   $comp_name = $this->input->post('comp_name');
-
-	   $email = $this->input->post('email');
-
-	   $address = $this->input->post('address');
-
-	   $discount = $this->input->post('discount');
-
-	   $user = $this->session->userdata('logged_in');
-
-	   $data = array('client_name' => $client_name,
-	                 'comp_name' => $comp_name,
-	                 'email' => $email,
-	                 'address' => $address,
-	                 'discount' => $discount,
-	                 'user_id' => $user['id']);
+$this->application->insert_campaign($data);
 
 
-	  $this->application->insert_client($data);
+// redirect('user_authentication/campaign');
+}
 
-	  redirect('user_authentication/client');
-	 }
+public function add_client(){
 
-	 public function add_package(){
+$client_name = $this->input->post('client_name');
 
-	  $name = $this->input->post('name');
+$comp_name = $this->input->post('comp_name');
 
-	  $desc = $this->input->post('description');
+$email = $this->input->post('email');
 
-	  $amount = $this->input->post('amount');
+$address = $this->input->post('address');
 
-	  $user = $this->session->userdata('logged_in');
+$discount = $this->input->post('discount');
 
-	  $data = array('name' => $name,
-	                'description' => $desc,
-	                'amount' => $amount,
-	                'user_id' => $user['id']);
+$user = $this->session->userdata('logged_in');
 
-
-	 $this->application->insert_package($data);
-
-	 redirect('user_authentication/package');
-	}
+$data = array('client_name' => $client_name,
+'comp_name' => $comp_name,
+'email' => $email,
+'address' => $address,
+'discount' => $discount,
+'user_id' => $user['id']);
 
 
-	public function add_user(){
+$this->application->insert_client($data);
 
-		$name = $this->input->post('name');
+redirect('user_authentication/client');
+}
 
-		$phone = $this->input->post('phone');
+public function add_package(){
 
-		$email = $this->input->post('email');
+$name = $this->input->post('name');
 
-		$address = $this->input->post('address');
+$desc = $this->input->post('description');
 
-		$nic = $this->input->post('nic');
+$amount = $this->input->post('amount');
 
-		$username = $this->input->post('username');
+$user = $this->session->userdata('logged_in');
 
-		$password = $this->input->post('password');
-
-		$login = $this->input->post('login');
-
-		$user = $this->session->userdata('logged_in');
-
-		$data = array('name' => $name,
-																'phone' => $phone,
-																'email' => $email,
-																'address' => $address,
-																'nic' => $nic,
-																'login' => $login,
-																'username' => $username,
-																'password' => $password,
-																'user_id' => $user['id']);
+$data = array('name' => $name,
+'description' => $desc,
+'amount' => $amount,
+'user_id' => $user['id']);
 
 
+$this->application->insert_package($data);
+
+redirect('user_authentication/package');
+}
+
+
+public function add_user(){
+
+$name = $this->input->post('name');
+
+$phone = $this->input->post('phone');
+
+$email = $this->input->post('email');
+
+$address = $this->input->post('address');
+
+$nic = $this->input->post('nic');
+
+$username = $this->input->post('username');
+
+$password = $this->input->post('password');
+
+$login = $this->input->post('login');
+
+$user = $this->session->userdata('logged_in');
+
+if($username == "" || $username == 0 || $password == "" || $password == 0)
+{
+	$username = "";
+	$password = "";
+}
+
+$data = array('name' => $name,
+		'phone' => $phone,
+		'email' => $email,
+		'address' => $address,
+		'nic' => $nic,
+		'login' => $login,
+		'username' => $username,
+		'password' => $password);
+
+if($this->users->check_username($username) == true)
+{
 	$this->application->insert_user($data);
-
 	redirect('user_authentication/user');
+}
+else
+{
+	$err['msg'] = "Something gone wrong(email/username)";
+	redirect('user_authentication/add_user', $err);
+}
 }
 
 

@@ -6,7 +6,7 @@ Class Users extends CI_Model {
 
 	{
 
-		$query = $this->db->query("select * from users where username = '".$data['username']."'");
+		$query = $this->db->query("select * from users where username = '".$data['username']."' and login = 1");
 		if($query->num_rows() == 1)
 
 		{
@@ -78,6 +78,27 @@ Class Users extends CI_Model {
 
 			return $result;
 	 }
+
+	 public function check_username($data)
+
+	{
+		if($data == "" || $data == 0)
+		{
+			return false;
+		}
+		else{
+		$query = $this->db->query("select * from users where username = '".$data."'");
+		if($query->num_rows() == 1)
+
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	}
 
 
 	

@@ -91,21 +91,7 @@
 </div><!-- end col -->
 </div>
 <!-- end row -->
-<script>
-$(document).on('click', '#login', function(){
- if($(this).prop('checked') == true)
-	{
-  $(this).val("1");
-  $('#username').removeAttr("disabled");
-  $('#password').removeAttr("disabled");
- }
- else {
-  $(this).val("0");
-  $('#username').attr("disabled", "disabled");
-  $('#password').attr("disabled", "disabled");
- }
-});
-</script>
+
 
 <!-- end row -->
 
@@ -258,7 +244,21 @@ var resizefunc = [];
 <!-- App js -->
 <script src="<?php echo base_url()?>assets/js/jquery.core.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.app.js"></script>
-
+<script type="text/javascript">
+  $(document).on('click', '#login', function(){
+ if($(this).prop('checked') == true)
+  {
+  $(this).val("1");
+  $('#username').removeAttr("disabled");
+  $('#password').removeAttr("disabled");
+ }
+ else {
+  $(this).val("0");
+  $('#username').attr("disabled", "disabled");
+  $('#password').attr("disabled", "disabled");
+ }
+});
+</script>
 </body>
 
 <!-- Mirrored from coderthemes.com/uplon/horizontal/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Dec 2017 14:10:05 GMT -->

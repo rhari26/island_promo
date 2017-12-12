@@ -39,6 +39,14 @@ $data['months'] = $this->application->get_months();
 $this->load->view('edit_pages/campaign', $data);
 }
 
+public function edit_user()
+{
+$data['id'] = $this->uri->segment('3');
+$data['user'] = $this->application->get_user_data($data['id']);
+
+$this->load->view('edit_pages/user', $data);
+}
+
 public function edit_package()
 {
 $data['id'] = $this->uri->segment('3');
@@ -72,9 +80,9 @@ $user = $this->session->userdata('logged_in');
 
 $filename = time().$month;
 
-	     $config['upload_path']   = './uploads/'; 
-         $config['allowed_types'] = 'gif|jpg|png'; 
-         $config['max_size']      = 2048000; 
+	     $config['upload_path']   = './uploads/';
+         $config['allowed_types'] = 'gif|jpg|png';
+         $config['max_size']      = 2048000;
          $config['file_name'] = $filename;
 
 $data = array('year' => $year,
@@ -89,7 +97,7 @@ $data = array('year' => $year,
 	if($this->upload->do_upload('userfile'))
         {
         	$img = $this->upload->data();
-        	
+
         	$data['file'] = $filename;
         }
 
@@ -144,6 +152,43 @@ $data = array('name' => $name,
 $this->application->update_package($id, $data);
 
 redirect('user_authentication/package');
+}
+
+public function update_user(){
+
+	$id = $this->uri->segment('3');
+
+	$name = $this->input->post('name');
+
+	$phone = $this->input->post('phone');
+
+	$email = $this->input->post('email');
+
+	$address = $this->input->post('address');
+
+	$nic = $this->input->post('nic');
+
+	$username = $this->input->post('username');
+
+	$password = $this->input->post('password');
+
+	$login = $this->input->post('login');
+
+	$user = $this->session->userdata('logged_in');
+
+	$data = array('name' => $name,
+															'phone' => $phone,
+															'email' => $email,
+															'address' => $address,
+															'nic' => $nic,
+															'login' => $login,
+															'username' => $username,
+															'password' => $password);
+
+
+$this->application->update_user($id,$data);
+
+redirect('user_authentication/user');
 }
 }
 ?>

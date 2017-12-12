@@ -20,6 +20,12 @@ Class Application extends CI_Model {
 
  }
 
+ public function insert_user($data){
+
+  $this->db->insert('users',$data);
+
+ }
+
  public function update_client($id, $data)
  {
   $this->db->where('id', $id);
@@ -38,6 +44,12 @@ Class Application extends CI_Model {
   $this->db->update('packages',$data);
  }
 
+ public function update_user($id, $data)
+ {
+  $this->db->where('id', $id);
+  $this->db->update('users',$data);
+ }
+
  public function get_packages($id)
  {
  	$user = $this->users->get_user_data($id);
@@ -49,6 +61,15 @@ Class Application extends CI_Model {
  	{
  		$query = $this->db->query("select * from packages where id ='".$id."' order by id desc");
  	}
+
+		$result = $query->result_array();
+
+		return $result;
+ }
+
+ public function get_users()
+ {
+ 	$query = $this->db->query("select * from users where username != 'admin' order by id desc");
 
 		$result = $query->result_array();
 
@@ -101,6 +122,15 @@ Class Application extends CI_Model {
  public function get_client_data($id)
  {
  	$query = $this->db->query("select * from clients where id = '".$id."'");
+
+		$result = $query->result_array();
+
+		return $result;
+ }
+
+ public function get_user_data($id)
+ {
+ 	$query = $this->db->query("select * from users where id = '".$id."' and username != 'admin'");
 
 		$result = $query->result_array();
 

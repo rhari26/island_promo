@@ -17,32 +17,34 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box table-responsive">
-                    <h4 class="m-t-0 header-title"><b>Clients</b></h4>
+                    <h4 class="m-t-0 header-title"><b>Add Employee</b></h4>
                     <p class="text-muted font-13 m-b-30">
-                        Manage your client data.
+                        Add Employee.
                     </p>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Client Name</th>
-                                <th>Address</th>
-                                <th>Actions</th>
-                            </tr>
+                           <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                           </tr>
                         </thead>
 
 
                         <tbody>
-                            <?php if(!empty($clients)){ ?>
-                                <?php foreach($clients as $client){ ?>
-                                <tr>
-                                    <th scope="row"><?php echo $client['id']; ?></th>
-                                    <td><?php echo $client['client_name']; ?></td>
-                                    <td><?php echo $client['address']; ?></td>
-                                    <th><a href="<?php echo site_url("edit/edit_client/".$client['id']); ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
-                                </tr>
-                            <?php } } ?>
+                         <?php if(!empty($users)){ ?>
+                         <?php foreach($users as $user){ ?>
+                         <tr>
+                             <th scope="row"><?php echo $user['id']; ?></th>
+                             <td><?php echo $user['name']; ?></td>
+                             <td><?php echo $user['phone']; ?></td>
+                             <td><?php echo $user['email']; ?></td>
+                             <th><a href="<?php echo site_url("edit/edit_user/".$user['id']); ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
+                         </tr>
+                         <?php } } ?>
                         </tbody>
                     </table>
                 </div>

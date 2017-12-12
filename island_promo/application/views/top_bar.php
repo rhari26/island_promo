@@ -83,12 +83,10 @@
                     </li>
 
                     <li class="has-submenu">
-                        <a href="#"><i class="zmdi zmdi-format-list-bulleted"></i> <span>Quotation</span> </a>
+                        <a href="#"><i class="zmdi zmdi-format-list-bulleted"></i> <span>Packages</span> </a>
                         <ul class="submenu">
                             <li><a href="<?php echo site_url("user_authentication/add_package"); ?>">Add Packages</a></li>
                             <li><a href="<?php echo site_url("user_authentication/package"); ?>">Manage Packages</a></li>
-                            <li><a href="#">Add Quoation</a></li>
-                            <li><a href="#">Manange Quoation</a></li>
                             <!-- <li><a href="#">Default Setting</a></li> -->
                         </ul>
                     </li>

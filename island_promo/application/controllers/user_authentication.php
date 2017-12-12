@@ -137,6 +137,17 @@ class User_Authentication extends CI_Controller {
 
 	}
 
+	public function user()
+
+	{
+		$user = $this->session->userdata('logged_in');
+
+		$data['users'] = $this->application->get_users();
+
+		$this->load->view("disp_pages/user", $data);
+
+	}
+
 	public function package()
 
 	{
@@ -173,7 +184,7 @@ class User_Authentication extends CI_Controller {
 	public function add_client()
 
 	{
-		
+
 		$this->load->view("user_auth/add_client");
 
 	}
@@ -183,6 +194,14 @@ class User_Authentication extends CI_Controller {
 	{
 
 		$this->load->view("user_auth/add_package");
+
+	}
+
+	public function add_user()
+
+	{
+
+		$this->load->view("user_auth/add_user");
 
 	}
 

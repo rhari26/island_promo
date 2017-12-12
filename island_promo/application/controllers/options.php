@@ -46,9 +46,9 @@ class Options extends CI_Controller {
 
 	    $filename = time().$month;
 
-	     $config['upload_path']   = './uploads/'; 
-         $config['allowed_types'] = 'gif|jpg|png'; 
-         $config['max_size']      = 2048000; 
+	     $config['upload_path']   = './uploads/';
+         $config['allowed_types'] = 'gif|jpg|png';
+         $config['max_size']      = 2048000;
          $config['file_name'] = $filename;
 
         $this->load->library('upload', $config);
@@ -62,17 +62,17 @@ class Options extends CI_Controller {
 	                  'camp_date' => $camp_date,
 	                  'sender' => $sender,
 	                  'user_id' => $user['id']);
-        
+
 
         if($this->upload->do_upload('userfile'))
         {
         	$img = $this->upload->data();
-        	
+
         	$data['file'] = $filename;
         }
-	    
+
         $this->application->insert_campaign($data);
-	   
+
 
 	   // redirect('user_authentication/campaign');
 	  }
@@ -124,6 +124,43 @@ class Options extends CI_Controller {
 
 	 redirect('user_authentication/package');
 	}
+
+
+	public function add_user(){
+
+		$name = $this->input->post('name');
+
+		$phone = $this->input->post('phone');
+
+		$email = $this->input->post('email');
+
+		$address = $this->input->post('address');
+
+		$nic = $this->input->post('nic');
+
+		$username = $this->input->post('username');
+
+		$password = $this->input->post('password');
+
+		$login = $this->input->post('login');
+
+		$user = $this->session->userdata('logged_in');
+
+		$data = array('name' => $name,
+																'phone' => $phone,
+																'email' => $email,
+																'address' => $address,
+																'nic' => $nic,
+																'login' => $login,
+																'username' => $username,
+																'password' => $password,
+																'user_id' => $user['id']);
+
+
+	$this->application->insert_user($data);
+
+	redirect('user_authentication/user');
+}
 
 
 }

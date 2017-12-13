@@ -76,14 +76,8 @@ ga('send', 'pageview');
  <?php echo form_open_multipart('options/add_campaign'); ?>
 <fieldset class="form-group">
 <label for="year">Year</label>
-<select class="form-control" id="year" name="year">
-<option value="">Select</option>
-<option value="2015">2015</option>
-<option value="2016">2016</option>
-<option value="2017">2017</option>
-<option value="2018">2018</option>
-<option value="2019">2019</option>
-</select>
+<input type="text" class="form-control" id="year" name="year"
+placeholder="Year" />
 </fieldset>
 
 <fieldset class="form-group">

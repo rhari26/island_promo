@@ -1,8 +1,0 @@
-<header>
-  <div class="navbar">
-   <%= link_to root_path(current_user.id), class: "name" do %>
-      <h1 class="title">Simpleblog</h1>
-    <% end %>
-    <%= link_to "Logout", destroy_user_session_path(user_id: current_user.id), method: :delete, class: "logout" %>
-  </div>
-</header>

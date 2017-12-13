@@ -1,3 +1,0 @@
-<% if params[:content].present? %>
- $('#post_<%= @post.id %>').html('<%= j render(:partial => "edit_post", :locals => {user: @user, post: @post}) %>');
-<% end %>

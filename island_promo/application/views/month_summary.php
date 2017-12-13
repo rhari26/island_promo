@@ -19,7 +19,7 @@
 <div class="btn-group pull-right m-t-15">
 
 </div>
-<h4 class="page-title">Batch Summary</h4>
+<h4 class="page-title">Monthly Summary</h4>
 </div>
 </div>
 <!-- end row -->
@@ -29,7 +29,7 @@
 <div class="col-12">
 <div class="card-box">
 
-<h4 class="header-title m-t-0 m-b-30">Batch Summary</h4>
+<h4 class="header-title m-t-0 m-b-30">Monthly Summary</h4>
 
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">

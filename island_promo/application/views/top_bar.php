@@ -74,12 +74,9 @@
                             <li><a href="<?php echo site_url("user_authentication/client"); ?>">Manage Clients</a></li>
                         </ul>
                     </li>
-                    <li class="has-submenu">
-                        <a href="#"><i class="zmdi zmdi-album"></i> <span>Batch Summary </span> </a>
-                    </li>
 
                     <li class="has-submenu">
-                        <a href="#"><i class="zmdi zmdi-collection-text"></i><span>Monthly Summary </span> </a>
+                        <a href="<?php echo site_url("user_authentication/month_summary"); ?>"><i class="zmdi zmdi-collection-text"></i><span>Monthly Summary </span> </a>
                     </li>
 
                     <li class="has-submenu">

@@ -160,14 +160,14 @@ class User_Authentication extends CI_Controller {
 
 	}
 
-	public function batch_summary()
+	public function month_summary()
 
 	{
 		$user = $this->session->userdata('logged_in');
 
 		$data['clients'] = $this->application->get_clients($user['id']);
 
-		$this->load->view("batch_summary", $data);
+		$this->load->view("month_summary", $data);
 
 	}
 

@@ -173,6 +173,31 @@ else
 }
 }
 
+public function month_summary()
+{
+	$year = $this->input->post('year');
+
+	$month = $this->input->post('month');
+
+	$date = $this->input->post('date');
+
+	$client = $this->input->post('client');
+
+	$user = $this->session->userdata('logged_in');
+
+	$filter = array('year' => $year,
+					'month' => $month,
+					'date' => $date,
+					'client'=> $client);
+
+	$data['campaigns'] = $this->application->month_filter($filter);
+
+	$data['clients'] = $this->application->get_clients($user['id']);
+	// print_r($data);
+	$this->load->view('month_summary', $data);
+
+}
+
 
 }
 ?>

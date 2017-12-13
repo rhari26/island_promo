@@ -154,5 +154,46 @@ Class Application extends CI_Model {
 
 		return $result;
  }
+
+ public function month_filter($data)
+ {
+ 	if($data['year'] !="")
+
+	{
+
+		$this->db->where('year', $data['year']);
+
+	}
+
+	if($data['month'] !="")
+
+	{
+
+		$this->db->where('month', $data['month']);
+
+	}
+
+	if($data['date'] !="")
+
+	{
+
+		$this->db->where('camp_date', $data['date']);
+
+	}
+
+	if($data['client'] !="")
+
+	{
+
+		$this->db->where('client_id', $data['client']);
+
+	}
+
+	$this->db->distinct();
+
+	return $this->db->get('campaign')->result_array();
+
+
+ }
 }
 ?>

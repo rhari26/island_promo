@@ -33,7 +33,7 @@
 
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-  <?php echo form_open('edit/update_package/'); ?>
+  <?php echo form_open('options/month_summary'); ?>
    <fieldset class="form-group">
    <label for="month">Month</label>
     <select class="form-control" id="month" name="month">
@@ -59,6 +59,23 @@
    placeholder="Year" />
    </fieldset>
 
+   <fieldset class="form-group">
+   <label for="date">Date</label>
+   <input type="date" class="form-control" id="date" name="date"
+   placeholder="Date" />
+   </fieldset>
+
+   <fieldset class="form-group">
+    <label for="client">Client Name</label>
+    <select class="form-control" id="client" name="client">
+    <option value="">Select</option>
+    <?php if(!empty($clients)){ ?>
+    <?php foreach($clients as $client){ ?>
+    <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
+    <?php } } ?>
+    </select>
+    </fieldset>
+
   <button type="submit" class="btn btn-primary">Submit</button>
  <?php echo form_close(); ?>
 
@@ -83,6 +100,7 @@
 
             <tbody>
              <?php if(!empty($campaigns)){ ?>
+             fhgdtfhdf
              <?php foreach($campaigns as $campaign){
                  $client = $this->application->get_client_data($campaign['client_id']);
               ?>
@@ -92,8 +110,8 @@
                  <td><?php echo $campaign['month']."-".$campaign['year']; ?></td>
                  <td><?php echo $campaign['camp_date']; ?></td>
                  <td><?php echo $campaign['amount']; ?></td>
-                 <td></td>
-                 <td></td>
+                 <td><?php if($campaign['invoice'] == 1){ echo "sent"; } ?></td>
+                 <td><?php if($campaign['payment'] == 1){ echo "paid"; } else{ echo "unpaid";} ?></td>
                  <td></td>
                  <td></td>
              </tr>

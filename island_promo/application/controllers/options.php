@@ -59,7 +59,6 @@ $data = array('year' => $year,
 'po_no' => $po_no,
 'amount' => $amount,
 'subject' => $subject,
-'camp_date' => $camp_date,
 'sender' => $sender,
 'user_id' => $user['id']);
 
@@ -71,10 +70,20 @@ $img = $this->upload->data();
 $data['file'] = $filename;
 }
 
-$this->application->insert_campaign($data);
+$last_id = $this->application->insert_campaign($data);
 
+$dataSet =array();
 
-// redirect('user_authentication/campaign');
+for($i=0;$i<sizeof($camp_date);$i++)
+{
+	if($camp_date[$i] != "")
+	{
+		$dataset = array('campaign_id' => $last_id,
+						 'camp_date' => $camp_date[$i]);
+		$this->application->insert_camp_date($dataset);
+	}
+}
+redirect('user_authentication/campaign');
 }
 
 public function add_client(){
@@ -196,6 +205,26 @@ public function month_summary()
 	// print_r($data);
 	$this->load->view('month_summary', $data);
 
+}
+
+public function payment_status()
+{
+	$id = $this->uri->segment('3');
+
+	$campaign = $this->application->get_campaign_data($id);
+
+	if($campaign[0]['payment'] == 1)
+	{
+		$data['payment'] = 0;
+	}
+	else if($campaign[0]['payment'] == 0)
+	{
+		$data['payment'] = 1;
+	}
+
+	$this->application->update_campaign($id, $data);
+
+	redirect("user_authentication/month_summary");
 }
 
 

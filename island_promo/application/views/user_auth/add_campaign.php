@@ -134,9 +134,9 @@ placeholder="Amount" />
 placeholder="Subject" />
 </fieldset>
 
-<fieldset class="form-group">
-<label for="camp_date">Campaign Date</label>
-<input type="date" class="form-control" id="camp_date" name="camp_date"
+<fieldset class="form-group" id="camp-date-group">
+<label for="camp_date">Campaign Date</label><span id="add_date">Add</span>
+<input type="date" class="form-control" id="camp_date" name="camp_date[]"
 placeholder="Campaign Date" />
 </fieldset>
 
@@ -312,6 +312,18 @@ var resizefunc = [];
 <!-- App js -->
 <script src="<?php echo base_url()?>assets/js/jquery.core.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.app.js"></script>
+
+<script type="text/javascript">
+    $(document).on("click", "#add_date", function(){
+        data = '<div><input type="date" class="form-control" id="camp_date" name="camp_date[]" placeholder="Campaign Date" /><span class="remove_date">remove</span></div>';
+
+        $('#camp-date-group').append(data);
+    });
+
+    $(document).on("click", ".remove_date", function(){
+        $(this).parent().remove();
+    });
+</script>
 
 </body>
 

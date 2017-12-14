@@ -27,7 +27,7 @@
                            <tr>
                              <th>#</th>
                              <th>Batch</th>
-                             <th>Date</th>
+                             <th>Campaign Dates</th>
                              <th>Client</th>
                              <th>Title</th>
                              <th>PO No.</th>
@@ -40,11 +40,12 @@
                          <?php if(!empty($campaigns)){ ?>
                          <?php foreach($campaigns as $campaign){
                              $client = $this->application->get_client_data($campaign['client_id']);
+                             $dates = $this->application->disp_camp_date($campaign['id']);
                           ?>
                          <tr>
                              <th scope="row"><?php echo $campaign['id']; ?></th>
                              <td><?php echo $campaign['month']."-".$campaign['year']; ?></td>
-                             <td><?php echo $campaign['camp_date']; ?></td>
+                             <td><?php echo $dates; ?></td>
                              <td><?php echo $client[0]['client_name']; ?></td>
                              <td><?php echo $campaign['subject']; ?></td>
                              <td><?php echo $campaign['po_no']; ?></td>

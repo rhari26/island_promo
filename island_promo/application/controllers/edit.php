@@ -36,6 +36,8 @@ $data['id'] = $this->uri->segment('3');
 $data['campaign'] = $this->application->get_campaign_data($data['id']);
 $data['months'] = $this->application->get_months();
 
+$data['camp_dates'] = $this->application->get_camp_date($data['id']);
+
 $this->load->view('edit_pages/campaign', $data);
 }
 
@@ -74,6 +76,8 @@ $subject = $this->input->post('subject');
 
 $camp_date = $this->input->post('camp_date');
 
+$img = $this->input->post('userfile');
+
 $sender = $this->input->post('sender');
 
 $user = $this->session->userdata('logged_in');
@@ -94,7 +98,7 @@ $data = array('year' => $year,
 	'camp_date' => $camp_date,
 	'sender' => $sender);
 
-	if($this->upload->do_upload('userfile'))
+	if($img != "" && $this->upload->do_upload('userfile'))
         {
         	$img = $this->upload->data();
 
@@ -102,6 +106,18 @@ $data = array('year' => $year,
         }
 
 $this->application->update_campaign($id, $data);
+
+$dataSet =array();
+$this->db->delete('camp_dates', array('campaign_id' => $id));
+for($i=0;$i<sizeof($camp_date);$i++)
+{
+	if($camp_date[$i] != "")
+	{
+		$dataset = array('campaign_id' => $id,
+						 'camp_date' => $camp_date[$i]);
+		$this->application->insert_camp_date($dataset);
+	}
+}
 
 redirect('user_authentication/campaign');
 }

@@ -6,6 +6,16 @@ Class Application extends CI_Model {
 
   $this->db->insert('campaign',$data);
 
+  $last_id = $this->db->insert_id();
+
+  return $last_id;
+
+ }
+
+ public function insert_camp_date($data){
+
+  $this->db->insert('camp_dates',$data);
+
  }
 
  public function insert_client($data){
@@ -144,6 +154,30 @@ Class Application extends CI_Model {
 		$result = $query->result_array();
 
 		return $result;
+ }
+
+ public function get_camp_date($id)
+ {
+ 	$query = $this->db->query("select * from camp_dates where campaign_id = '".$id."'");
+
+		$result = $query->result_array();
+
+		return $result;
+ }
+
+ public function disp_camp_date($id)
+ {
+ 	$query = $this->db->query("select * from camp_dates where campaign_id = '".$id."'");
+
+		$result = $query->result_array();
+		$str = "";
+		foreach($result as $date)
+		{
+			$str = $date['camp_date'].", ".$str;
+		}
+		 $str = rtrim($str, ',');
+
+		 return $str;
  }
 
  public function get_months()

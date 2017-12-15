@@ -137,15 +137,10 @@ placeholder="Amount" value="<?php echo $campaign[0]['amount']; ?>" />
 placeholder="Subject" value="<?php echo $campaign[0]['subject']; ?>" />
 </fieldset>
 
-<fieldset class="form-group" id="camp-date-group">
-<label for="camp_date">Campaign Date</label><span id="add_date">Add</span>
-<?php if(!empty($camp_dates)){ ?>
-<?php foreach($camp_dates as $date){ ?>
-<div><input type="date" class="form-control" id="camp_date" name="camp_date[]" placeholder="Campaign Date" value="<?php echo $date['camp_date']; ?>" /><span class="remove_date">remove</span></div>
-<?php } } else{ ?>
-<input type="date" class="form-control" id="camp_date" name="camp_date[]"
-placeholder="Campaign Date" />
-<?php } ?>
+<fieldset class="form-group">
+<label for="camp_date">Campaign Date</label>
+<input type="date" class="form-control" id="camp_date" name="camp_date"
+placeholder="Campaign Date" value="<?php echo $campaign[0]['camp_date']; ?>" />
 </fieldset>
 
 <fieldset class="form-group">
@@ -320,17 +315,6 @@ var resizefunc = [];
 <!-- App js -->
 <script src="<?php echo base_url()?>assets/js/jquery.core.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.app.js"></script>
-<script type="text/javascript">
-    $(document).on("click", "#add_date", function(){
-        data = '<div><input type="date" class="form-control" id="camp_date" name="camp_date[]" placeholder="Campaign Date" /><span class="remove_date">remove</span></div>';
-
-        $('#camp-date-group').append(data);
-    });
-
-    $(document).on("click", ".remove_date", function(){
-        $(this).parent().remove();
-    });
-</script>
 
 </body>
 

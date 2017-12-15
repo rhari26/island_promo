@@ -312,7 +312,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            2016 © Uplon.
+                            2016 - 2017 © Island Promotions.
                         </div>
                     </div>
                 </div>

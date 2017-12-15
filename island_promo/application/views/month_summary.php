@@ -29,58 +29,58 @@
 <div class="col-12">
 <div class="card-box">
 
-<h4 class="header-title m-t-0 m-b-30">Monthly Summary</h4>
 
 <div class="row">
-<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-  <?php echo form_open('options/month_summary'); ?>
-   <fieldset class="form-group">
-   <label for="month">Month</label>
-    <select class="form-control" id="month" name="month">
-    <option value="">Select</option>
-    <option value="January">January</option>
-    <option value="February">February</option>
-    <option value="March">March</option>
-    <option value="April">April</option>
-    <option value="May">May</option>
-    <option value="June">June</option>
-    <option value="July">July</option>
-    <option value="August">August</option>
-    <option value="September">September</option>
-    <option value="October">October</option>
-    <option value="November">November</option>
-    <option value="December">December</option>
-    </select>
-   </fieldset>
+<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-12">
+    <div class="card-box">
+      <?php echo form_open('options/month_summary'); ?>
+       <fieldset class="form-group">
+       <label for="month">Month</label>
+        <select class="form-control" id="month" name="month">
+        <option value="">Select</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+        </select>
+       </fieldset>
 
-   <fieldset class="form-group">
-   <label for="year">Year</label>
-   <input type="text" class="form-control" id="year" name="year"
-   placeholder="Year" />
-   </fieldset>
+       <fieldset class="form-group">
+       <label for="year">Year</label>
+       <input type="text" class="form-control" id="year" name="year"
+       placeholder="Year" />
+       </fieldset>
 
-   <fieldset class="form-group">
-   <label for="date">Date</label>
-   <input type="date" class="form-control" id="date" name="date"
-   placeholder="Date" />
-   </fieldset>
+       <fieldset class="form-group">
+       <label for="date">Date</label>
+       <input type="date" class="form-control" id="date" name="date"
+       placeholder="Date" />
+       </fieldset>
 
-   <fieldset class="form-group">
-    <label for="client">Client Name</label>
-    <select class="form-control" id="client" name="client">
-    <option value="">Select</option>
-    <?php if(!empty($clients)){ ?>
-    <?php foreach($clients as $client){ ?>
-    <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
-    <?php } } ?>
-    </select>
-    </fieldset>
+       <fieldset class="form-group">
+        <label for="client">Client Name</label>
+        <select class="form-control" id="client" name="client">
+        <option value="">Select</option>
+        <?php if(!empty($clients)){ ?>
+        <?php foreach($clients as $client){ ?>
+        <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
+        <?php } } ?>
+        </select>
+        </fieldset>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
- <?php echo form_close(); ?>
-
+      <button type="submit" class="btn btn-primary">Submit</button>
+     <?php echo form_close(); ?>
+    </div>
 </div><!-- end col -->
-<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
+<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-12">
     <div class="card-box table-responsive">
         <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
@@ -111,7 +111,7 @@
                  <td><?php echo $campaign['camp_date']; ?></td>
                  <td><?php echo $campaign['amount']; ?></td>
                  <td><?php if($campaign['invoice'] == 1){ echo "sent"; } ?></td>
-                 <td><a href="<?php echo site_url("options/payment_status/".$campaign['id']); ?>"><?php if($campaign['payment'] == 1){ echo "paid"; } else{ echo "unpaid";} ?></a></td>
+                 <td><?php if($campaign['payment'] == 1){ echo "paid"; } else{ echo "unpaid";} ?></td>
                  <td></td>
                  <td></td>
              </tr>

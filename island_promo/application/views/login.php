@@ -90,7 +90,7 @@ if($tmp['id'] != "")
 
                             <div class="form-group text-center row m-t-10">
                                 <div class="col-12">
-                                    <button class="btn btn-success btn-block waves-effect waves-light" type="submit">Log In</button>
+                                    <button class="btn btn-success btn-block waves-effect waves-light color-blue" type="submit">Log In</button>
                                 </div>
                             </div>
 

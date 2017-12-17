@@ -3,7 +3,7 @@
 <?php $this->load->view('top_bar'); ?>
 
 <body>
-	<div class="wrapper">
+    <div class="wrapper">
         <div class="container">
                 <div class="row">
                     <div class="col-sm-12">

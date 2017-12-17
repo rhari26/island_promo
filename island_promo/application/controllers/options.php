@@ -228,5 +228,12 @@ public function payment_status()
 }
 
 
+public function send_invoice()
+{
+	$this->load->helper('pdf_helper');
+
+	$this->load->view('send_invoice');
+}
+
 }
 ?>

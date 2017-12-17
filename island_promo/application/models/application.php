@@ -229,5 +229,29 @@ Class Application extends CI_Model {
 
 
  }
+
+ public function get_dashboard_campaign()
+
+	{
+
+		$query = $this->db->query("select * from campaign order by id desc limit 5");
+
+		$result = $query->result_array();
+
+		return $result;	
+
+	}
+
+	public function get_dashboard_client()
+
+	{
+
+		$query = $this->db->query("select * from clients order by id desc limit 5");
+
+		$result = $query->result_array();
+
+		return $result;	
+
+	}
 }
 ?>

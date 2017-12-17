@@ -29,9 +29,9 @@
 <div class="col-12">
 <div class="card-box">
 
-<h4 class="header-title m-t-0 m-b-30">Add Package</h4>
+<h4 class="header-title text-center m-t-0 m-b-30">Add Package</h4>
 
-<div class="row">
+<div class="row justify-cen">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
 	<?php echo form_open('options/add_user'); ?>
  <fieldset class="form-group">
@@ -64,9 +64,16 @@
  placeholder="Email" />
  </fieldset>
 
- <fieldset class="form-group">
-  <input type="checkbox" class="form-control" id="login" name="login"
+ <fieldset class="form-group marl-20">
+  <div class="checkbox checkbox-custom">
+    <input type="checkbox" class="form-control" id="login" name="login"
   value="0" />
+    <label for="login">Login Access</label>
+  </div>
+   
+ </fieldset>
+
+ <fieldset class="form-group">
  <label for="username">Username</label>
  <input type="text" class="form-control" id="username" name="username"
  placeholder="Username" disabled/>
@@ -104,7 +111,6 @@
 2016 - 2017 © Island Promotions.
 </footer>
 <!-- End Footer -->
-
 
 
 <!-- Right Sidebar -->

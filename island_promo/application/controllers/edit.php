@@ -33,10 +33,12 @@ $this->load->view('edit_pages/client', $data);
 public function edit_campaign()
 {
 $data['id'] = $this->uri->segment('3');
+$user = $this->session->userdata('logged_in');
 $data['campaign'] = $this->application->get_campaign_data($data['id']);
 $data['months'] = $this->application->get_months();
 
 $data['camp_dates'] = $this->application->get_camp_date($data['id']);
+$data['clients'] = $this->application->get_clients($user['id']);
 
 $this->load->view('edit_pages/campaign', $data);
 }
@@ -95,7 +97,6 @@ $data = array('year' => $year,
 	'po_no' => $po_no,
 	'amount' => $amount,
 	'subject' => $subject,
-	'camp_date' => $camp_date,
 	'sender' => $sender);
 
 	if($img != "" && $this->upload->do_upload('userfile'))

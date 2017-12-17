@@ -68,9 +68,9 @@ ga('send', 'pageview');
 <div class="col-12">
 <div class="card-box">
 
-<h4 class="header-title m-t-0 m-b-30">Add Campaign</h4>
+<h4 class="header-title text-center m-t-0 m-b-30">Add Campaign</h4>
 
-<div class="row">
+<div class="row justify-cen">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
 
  <?php echo form_open_multipart('options/add_campaign'); ?>
@@ -312,7 +312,6 @@ var resizefunc = [];
 <!-- App js -->
 <script src="<?php echo base_url()?>assets/js/jquery.core.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.app.js"></script>
-
 <script type="text/javascript">
     $(document).on("click", "#add_date", function(){
         data = '<div><input type="date" class="form-control" id="camp_date" name="camp_date[]" placeholder="Campaign Date" /><span class="remove_date">remove</span></div>';
@@ -324,7 +323,6 @@ var resizefunc = [];
         $(this).parent().remove();
     });
 </script>
-
 </body>
 
 <!-- Mirrored from coderthemes.com/uplon/horizontal/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Dec 2017 14:10:05 GMT -->

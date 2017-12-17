@@ -26,9 +26,9 @@
     <div class="col-12">
         <div class="card-box">
 
-            <h4 class="header-title m-t-0 m-b-30">Add Client</h4>
+            <h4 class="header-title text-center m-t-0 m-b-30">Add Client</h4>
 
-            <div class="row">
+            <div class="row justify-cen">
                 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
                     <?php echo form_open('options/add_client'); ?>
                          <fieldset class="form-group">

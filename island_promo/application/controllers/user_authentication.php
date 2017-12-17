@@ -121,8 +121,10 @@ class User_Authentication extends CI_Controller {
 	public function dashboard()
 
 	{
+		$data['campaigns'] = $this->application->get_dashboard_campaign();
+		$data['clients'] = $this->application->get_dashboard_client();
 
-		$this->load->view("user_auth/dashboard");
+		$this->load->view("user_auth/dashboard", $data);
 
 	}
 

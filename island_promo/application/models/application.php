@@ -210,8 +210,11 @@ Class Application extends CI_Model {
 	if($data['date'] !="")
 
 	{
+		echo "string";
+		$newDate = date("Y-m-d", strtotime($data['date']));
+		$this->db->where('`id` IN (SELECT `campaign_id` FROM `camp_dates` WHERE camp_date = "'.$newDate.'")', NULL, FALSE);
 
-		$this->db->where('camp_date', $data['date']);
+		// $this->db->where('camp_date', $data['date']);
 
 	}
 

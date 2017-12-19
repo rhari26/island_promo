@@ -20,26 +20,27 @@
     </div>
     <div class="pull-right">
         <h5>Invoice # <br>
-            <small>2016-04-23654789</small>
+            <small><?php echo $campaign[0]['id']; ?></small>
         </h5>
     </div>
 </div>
 <hr>
 <div class="row">
     <div class="col-sm-12">
-
+<?php 
+$client = $this->application->get_client_data($campaign[0]['client_id']);
+?>
         <div class="float-left m-t-30">
             <address>
-              <strong>Twitter, Inc.</strong><br>
-              795 Folsom Ave, Suite 600<br>
-              San Francisco, CA 94107<br>
-              <abbr title="Phone">P:</abbr> (123) 456-7890
+              <strong><?php echo $client[0]['client_name']; ?></strong><br>
+              <?php echo $client[0]['address']; ?>
+              <br>
+              <abbr title="Phone">E:</abbr> <?php echo $client[0]['email']; ?>
               </address>
         </div>
         <div class="float-right m-t-30">
-            <p><strong>Order Date: </strong> Jan 17, 2016</p>
-            <p class="m-t-10"><strong>Order Status: </strong> <span class="label label-danger">Pending</span></p>
-            <p class="m-t-10"><strong>Order ID: </strong> #123456</p>
+            <p><strong>Date: </strong> <?php echo date("d-m-Y)"); ?></p>
+            <p class="m-t-10"><strong>Order ID: </strong> #<?php echo $campaign[0]['id']; ?></p>
         </div>
     </div><!-- end col -->
 </div>
@@ -52,54 +53,23 @@
         <div class="table-responsive">
             <table class="table m-t-30">
                 <thead class="bg-faded">
-                    <tr><th>#</th>
-                    <th>Item</th>
+                    <tr>
+                    <th>Date</th>
                     <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Unit Cost</th>
-                    <th>Total</th>
+                    <th>Amount</th>
+                    
                 </tr></thead>
                 <tbody>
+                <?php $dates = $this->application->get_camp_date($campaign[0]['id']);
+                foreach($dates as $date)
+                {
+                 ?>
                     <tr>
-                        <td>1</td>
-                        <td>LCD</td>
-                        <td>Lorem ipsum dolor sit amet.</td>
-                        <td>1</td>
-                        <td>$380</td>
-                        <td>$380</td>
+                        <td><?php echo $date['camp_date'] ?></td>
+                        <td><?php echo $campaign[0]['subject']; ?></td>
+                        <td><?php echo $campaign[0]['amount']; ?></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Mobile</td>
-                        <td>Lorem ipsum dolor sit amet.</td>
-                        <td>5</td>
-                        <td>$50</td>
-                        <td>$250</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>LED</td>
-                        <td>Lorem ipsum dolor sit amet.</td>
-                        <td>2</td>
-                        <td>$500</td>
-                        <td>$1000</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>LCD</td>
-                        <td>Lorem ipsum dolor sit amet.</td>
-                        <td>3</td>
-                        <td>$300</td>
-                        <td>$900</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Mobile</td>
-                        <td>Lorem ipsum dolor sit amet.</td>
-                        <td>5</td>
-                        <td>$80</td>
-                        <td>$400</td>
-                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -120,11 +90,11 @@
         </div>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3">
-        <p class="text-right"><b>Sub-total:</b> 2930.00</p>
-        <p class="text-right">Discout: 12.9%</p>
+        <p class="text-right"><b>Sub-total:</b> <?php echo count($dates) * $campaign[0]['amount']; ?></p>
+        <p class="text-right">Discout: <?php echo $client[0]['discount']; ?>%</p>
         <p class="text-right">VAT: 12.9%</p>
         <hr>
-        <h3 class="text-right">USD 2930.00</h3>
+        <h3 class="text-right">USD <?php echo count($dates) * $campaign[0]['amount']; ?></h3>
     </div>
 </div>
 <hr>

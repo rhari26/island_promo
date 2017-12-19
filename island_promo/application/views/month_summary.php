@@ -113,7 +113,7 @@
                  <td><?php echo $campaign['amount']; ?></td>
                  <td><?php if($campaign['invoice'] == 1){ echo "sent"; } ?></td>
                  <td><?php if($campaign['payment'] == 1){ echo "paid"; } else{ echo "unpaid";} ?></td>
-                 <td></td>
+                 <td><a href="<?php echo site_url("user_authentication/invoice/".$campaign['id']); ?>">Invoice</a></td>
                  <td></td>
              </tr>
              <?php } } ?>

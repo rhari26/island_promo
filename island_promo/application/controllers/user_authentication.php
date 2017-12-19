@@ -221,8 +221,11 @@ class User_Authentication extends CI_Controller {
 	public function invoice()
 
 	{
+		$id = $this->uri->segment('3');
 
-		$this->load->view("invoice");
+		$data['campaign'] = $this->application->get_campaign_data($id);
+
+		$this->load->view("invoice", $data);
 
 	}
 

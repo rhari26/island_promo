@@ -230,9 +230,15 @@ public function payment_status()
 
 public function send_invoice()
 {
+	$id = $this->uri->segment('3');
+
+	$data['campaign'] = $this->application->get_campaign_data($id);
+
+	$data['camp_dates'] = $this->application->get_camp_date($id);
+
 	$this->load->helper('pdf_helper');
 
-	$this->load->view('send_invoice');
+	$this->load->view('send_invoice', $data);
 }
 
 }

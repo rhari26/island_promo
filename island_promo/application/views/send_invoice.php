@@ -19,76 +19,55 @@ $obj_pdf->setFontSubsetting(false);
 $obj_pdf->AddPage();
 // ob_start();
 // we can have any view part here like HTML, PHP etc
-$content = '<!DOCTYPE html><html>
-    <span><span align="center"><h1 color= "#0575E6">Island Promo</h1></span></span>
-    <table cellpadding="10">
-        <tr>
-            <td align="left"><span><b>Order Date: </b>Jan 17, 2016<br /><b>Order Status: </b><span>Pending</span><br /><b>Order ID: </b> #123456<br /></span></td>
-            <td align="right"><span><b>Invoice</b><br /><small>2016-04-23654789</small></span></td>
-        </tr>
-    </table>
+$msg = '';
 
-    <table cellpadding="5">
-        <thead>
-            <tr><th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">#</th>
-            <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Item</th>
-            <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Description</th>
-            <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Quantity</th>
-            <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Unit Cost</th>
-            <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Total</th>
-        </tr></thead>
-        <tbody>
+$total = $campaign[0]['amount'] * count($camp_dates);
+$client = $this->application->get_client_data($campaign[0]['client_id']);
+$date = date("M d Y");
+foreach($camp_dates as $date){
+$msg = '<tr>
+	<td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">#</td>
+	<td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">'.$date['camp_date'].'</td>
+	<td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">'.$campaign[0]['subject'].'</td>
+	<td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">'.$campaign[0]['amount'].'</td>
+	<td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; "></td>
+</tr>'.$msg;
+ }
+$content = '<!DOCTYPE html><html>
+    <span><span align="center"><h1 color= "#0575E6" style="font-size: 20px;">Island Promo</h1></span></span>
+
+    <div>
+        <table>
             <tr>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">1</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">LCD</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">Lorem ipsum dolor sit amet.</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">1</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$380</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$380</td>
+                <td align="left" style="line-height: 18px;"><span><b>Order Date: </b><br /><b>Order ID: </b> #'.$campaign[0]['id'].' <br /></span></td>
+                <td align="right" style="line-height: 18px;"><span><b>Invoice</b><br /><small>2016-04-23654789</small></span></td>
             </tr>
+        </table>
+    </div>
+    <div>
+        <table cellpadding="5">
+            <thead>
+                <tr><th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">#</th>
+                <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Date</th>
+                <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Description</th>
+                <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Amount</th>
+                <th style="border: 1px solid #f1f1f1; height: 25px; text-align: center; line-height: 18px; font-size: 8px; font-weight: bold;">Total</th>
+            </tr></thead>
+            <tbody>'.$msg.'
+                <tr>
+                    <td colspan="4"></td>
+                    <td colspan="2"  align="right" style=" border: 1px solid #f1f1f1; text-align: center; font-size: 9px; color: #0575E6; "><b>Total '.$total.'</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table>
             <tr>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">2</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">Mobile</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">Lorem ipsum dolor sit amet.</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">5</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$50</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$250</td>
+                <td align="right" style="line-height: 18px;"><span><span><b>Sub-total:</b> '.$total.'<br /></span><span>Discout: '.$client[0]['discount'].'%<br /></span><span><h3>USD '.$total.'</h3></span></span></td>
             </tr>
-            <tr>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">3</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">LED</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">Lorem ipsum dolor sit amet.</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">2</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$500</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$1000</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">4</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">LCD</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">Lorem ipsum dolor sit amet.</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">3</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$300</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$900</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">5</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">Mobile</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">Lorem ipsum dolor sit amet.</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">5</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$80</td>
-                <td style="border: 1px solid #f1f1f1; text-align: center; font-size: 8px; color: #383838; ">$400</td>
-            </tr>
-            <tr>
-                <td colspan="4"></td>
-                <td colspan="2"  align="right" style=" border: 1px solid #f1f1f1; text-align: center; font-size: 9px; color: #0575E6; "><b>Total $400</b></td>
-            </tr>
-        </tbody>
-    </table>
-    <table cellpadding="10">
-        <tr>
-            <td align="right"><span><span><b>Sub-total:</b> 2930.00<br /></span><span>Discout: 12.9%<br /></span><span>VAT: 12.9%<br /></span><span><h3>USD 2930.00</h3></span></span></td>
-        </tr>
-    </table>
+        </table>
+    </div>
 
   <div align="center" style="font-size: 8px; color: #aaaaa;">
     2016 © Island Promo.
@@ -99,4 +78,6 @@ $content = '<!DOCTYPE html><html>
 // ob_end_clean();
 $obj_pdf->writeHTML($content, true, false, true, false, '');
 $obj_pdf->Output('output.pdf', 'I');
+
+
 ?>

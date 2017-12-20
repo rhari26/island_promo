@@ -34,49 +34,64 @@
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-12">
     <div class="card-box">
       <?php echo form_open('options/month_summary'); ?>
-       <fieldset class="form-group">
-       <label for="month">Month</label>
-        <select class="form-control" id="month" name="month">
-        <option value="">Select</option>
-        <option value="January">January</option>
-        <option value="February">February</option>
-        <option value="March">March</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">October</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
-        </select>
-       </fieldset>
+      <div class="row">
+        <div class="col-lg-11 col-sm-11 col-xs-11 col-md-11 col-xl-11">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
 
-       <fieldset class="form-group">
-       <label for="year">Year</label>
-       <input type="text" class="form-control" id="year" name="year"
-       placeholder="Year" />
-       </fieldset>
-
-       <fieldset class="form-group">
-       <label for="date">Date</label>
-       <input type="date" class="form-control" id="date" name="date"
-       placeholder="Date" />
-       </fieldset>
-
-       <fieldset class="form-group">
-        <label for="client">Client Name</label>
-        <select class="form-control" id="client" name="client">
-        <option value="">Select</option>
-        <?php if(!empty($clients)){ ?>
-        <?php foreach($clients as $client){ ?>
-        <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
-        <?php } } ?>
-        </select>
-        </fieldset>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
+                       <label for="month">Month</label>
+                        <select class="form-control" id="month" name="month">
+                        <option value="">Select</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                        </select>
+                   </fieldset>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
+                       <label for="year">Year</label>
+                       <input type="text" class="form-control" id="year" name="year"
+                       placeholder="Year" />
+                   </fieldset>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
+                       <label for="date">Date</label>
+                       <input type="date" class="form-control" id="date" name="date"
+                       placeholder="Date" />
+                   </fieldset>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
+                        <label for="client">Client Name</label>
+                        <select class="form-control" id="client" name="client">
+                        <option value="">Select</option>
+                        <?php if(!empty($clients)){ ?>
+                        <?php foreach($clients as $client){ ?>
+                        <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
+                        <?php } } ?>
+                        </select>
+                   </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1 col-xl-1">
+            <label>Filter</label>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+      
      <?php echo form_close(); ?>
     </div>
 </div><!-- end col -->

@@ -153,13 +153,10 @@ $password = $this->input->post('password');
 
 $login = $this->input->post('login');
 
+$admin = $this->input->post('admin');
+
 $user = $this->session->userdata('logged_in');
 
-if($username == "" || $username == 0 || $password == "" || $password == 0)
-{
-	$username = "";
-	$password = "";
-}
 
 $data = array('name' => $name,
 		'phone' => $phone,
@@ -168,18 +165,29 @@ $data = array('name' => $name,
 		'nic' => $nic,
 		'login' => $login,
 		'username' => $username,
+		'admin' => $admin,
 		'password' => $password);
+	$valid_username = $this->users->check_username($username);
 
-if($this->users->check_username($username) == true)
-{
-	$this->application->insert_user($data);
-	redirect('user_authentication/user');
-}
-else
-{
-	$err['msg'] = "Something gone wrong(email/username)";
-	redirect('user_authentication/add_user', $err);
-}
+	if($login == 1)
+	{
+		if($valid_username == 1){
+			$this->application->insert_user($data);
+			redirect('user_authentication/user');
+		}
+		else
+		{
+			redirect('user_authentication/add_user');
+		}
+	}
+	elseif($login == 0)
+	{
+		$this->application->insert_user($data);
+		redirect('user_authentication/user');
+	}
+	
+		
+	
 }
 
 public function month_summary()
@@ -188,7 +196,24 @@ public function month_summary()
 
 	$month = $this->input->post('month');
 
-	$date = $this->input->post('date');
+	$user = $this->session->userdata('logged_in');
+
+	$filter = array('year' => $year,
+					'month' => $month);
+
+	$data['campaigns'] = $this->application->month_filter($filter);
+
+	$data['clients'] = $this->application->get_clients($user['id']);
+	// print_r($data);
+	$this->load->view('month_summary', $data);
+
+}
+
+public function client_summary()
+{
+	$year = $this->input->post('year');
+
+	$month = $this->input->post('month');
 
 	$client = $this->input->post('client');
 
@@ -196,14 +221,13 @@ public function month_summary()
 
 	$filter = array('year' => $year,
 					'month' => $month,
-					'date' => $date,
 					'client'=> $client);
 
-	$data['campaigns'] = $this->application->month_filter($filter);
+	$data['campaigns'] = $this->application->client_filter($filter);
 
 	$data['clients'] = $this->application->get_clients($user['id']);
 	// print_r($data);
-	$this->load->view('month_summary', $data);
+	$this->load->view('client_summary', $data);
 
 }
 

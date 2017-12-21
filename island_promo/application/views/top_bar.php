@@ -68,10 +68,11 @@
                         </ul>
                     </li>
                     <li class="has-submenu">
-                        <a href="#"><i class="zmdi zmdi-copy"></i> <span> Add Clients </span> </a>
+                        <a href="#"><i class="zmdi zmdi-copy"></i> <span>Clients </span> </a>
                         <ul class="submenu">
                             <li><a href="<?php echo site_url("user_authentication/add_client"); ?>">Add Clients</a></li>
                             <li><a href="<?php echo site_url("user_authentication/client"); ?>">Manage Clients</a></li>
+                            <li><a href="<?php echo site_url("user_authentication/client_summary"); ?>">Client Summary</a></li>
                         </ul>
                     </li>
 

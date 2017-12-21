@@ -79,7 +79,7 @@ Class Application extends CI_Model {
 
  public function get_users()
  {
- 	$query = $this->db->query("select * from users where username != 'admin' order by id desc");
+ 	$query = $this->db->query("select * from users where admin != '1' order by id desc");
 
 		$result = $query->result_array();
 
@@ -224,16 +224,32 @@ Class Application extends CI_Model {
 
 	}
 
-	if($data['date'] !="")
+
+	$this->db->distinct();
+
+	return $this->db->get('campaign')->result_array();
+
+
+ }
+
+ public function client_filter($data)
+ {
+ 	if($data['year'] !="")
 
 	{
-		echo "string";
-		$newDate = date("Y-m-d", strtotime($data['date']));
-		$this->db->where('`id` IN (SELECT `campaign_id` FROM `camp_dates` WHERE camp_date = "'.$newDate.'")', NULL, FALSE);
 
-		// $this->db->where('camp_date', $data['date']);
+		$this->db->where('year', $data['year']);
 
 	}
+
+	if($data['month'] !="")
+
+	{
+
+		$this->db->where('month', $data['month']);
+
+	}
+
 
 	if($data['client'] !="")
 

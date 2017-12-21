@@ -19,7 +19,7 @@
 <div class="btn-group pull-right m-t-15">
 
 </div>
-<h4 class="page-title">Employee</h4>
+<h4 class="page-title">Monthly Summary</h4>
 </div>
 </div>
 <!-- end row -->
@@ -29,77 +29,115 @@
 <div class="col-12">
 <div class="card-box">
 
-<h4 class="header-title text-center m-t-0 m-b-30">Add Employee</h4>
 
-<div class="row justify-cen">
-<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
-	<?php echo form_open('options/add_user'); ?>
- <fieldset class="form-group">
- <label for="name">Name</label>
- <input type="text" class="form-control" id="name" name="name"
- placeholder="Name" />
- </fieldset>
+<div class="row">
+<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-12">
+    <div class="card-box">
+      <?php echo form_open('options/client_summary'); ?>
+      <div class="row">
+        <div class="col-lg-11 col-sm-11 col-xs-11 col-md-11 col-xl-11">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
 
- <fieldset class="form-group">
- <label for="address">Address</label>
- <textarea class="form-control" id="address"
- rows="3" name="address"></textarea>
- </fieldset>
+                       <label for="month">Month</label>
+                        <select class="form-control" id="month" name="month">
+                        <option value="">Select</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                        </select>
+                   </fieldset>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
 
- <fieldset class="form-group">
- <label for="nic">NIC No.</label>
- <input type="text" class="form-control" id="nic" name="nic"
- placeholder="NIC No."/>
- </fieldset>
-
- <fieldset class="form-group">
- <label for="phone">Phone</label>
- <input type="text" class="form-control" id="phone" name="phone"
- placeholder="Phone"/>
- </fieldset>
-
- <fieldset class="form-group">
- <label for="email">Email</label>
- <input type="text" class="form-control" id="email" name="email"
- placeholder="Email" />
- </fieldset>
-
- <fieldset class="form-group marl-20">
-  <div class="checkbox checkbox-custom">
-    <input type="checkbox" class="form-control" id="admin" name="admin"
-  value="0" />
-    <label for="admin">Admin Access</label>
-  </div>
-   
- </fieldset>
-
- <fieldset class="form-group marl-20">
-  <div class="checkbox checkbox-custom">
-    <input type="checkbox" class="form-control" id="login" name="login"
-  value="0" />
-    <label for="login">Login Access</label>
-  </div>
-   
- </fieldset>
-
- <fieldset class="form-group">
- <label for="username">Username</label>
- <input type="text" class="form-control" id="username" name="username"
- placeholder="Username" disabled/>
- </fieldset>
-
- <fieldset class="form-group">
- <label for="password">Password</label>
- <input type="text" class="form-control" id="password" name="password"
- placeholder="Password" disabled/>
- </fieldset>
-
-
-
-<button type="submit" class="btn btn-primary">Submit</button>
-<?php echo form_close(); ?>
+                       <label for="year">Year</label>
+                        <select class="form-control" id="year" name="year">
+                        <option value="">Select</option>
+                        <?php $i = 2010;
+                        while($i <= 2040){
+                         ?>
+                        
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option> 
+                        <?php $i++; }?>
+                        </select>
+                   </fieldset>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
+                        <label for="client">Client Name</label>
+                        <select class="form-control" id="client" name="client">
+                        <option value="">Select</option>
+                        <?php if(!empty($clients)){ ?>
+                        <?php foreach($clients as $client){ ?>
+                        <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
+                        <?php } } ?>
+                        </select>
+                   </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1 col-xl-1">
+            <label>Filter</label>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+      
+     <?php echo form_close(); ?>
+    </div>
 </div><!-- end col -->
+<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-12">
+    <div class="card-box table-responsive">
+        <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+               <tr>
+                 <th>#</th>
+                 <th>Client</th>
+                 <th>Batch</th>
+                 <th>Date</th>
+                 <th>Amount</th>
+                 <th>Payment</th>
+                 <th>Inv</th>
+                 <th>Qty</th>
+                 <th>Total</th>
+                </tr>
+            </thead>
 
+
+            <tbody>
+             <?php if(!empty($campaigns)){ ?>
+             fhgdtfhdf
+             <?php foreach($campaigns as $campaign){
+                 $client = $this->application->get_client_data($campaign['client_id']);
+                 $dates = $this->application->disp_camp_date($campaign['id']);
+                 $qty = $this->application->get_camp_date($campaign['id']);
+              ?>
+             <tr>
+                 <th scope="row"><?php echo $campaign['id']; ?></th>
+                 <td><?php echo $client[0]['client_name']; ?></td>
+                 <td><?php echo $campaign['month']."-".$campaign['year']; ?></td>
+                 <td><?php echo $dates; ?></td>
+                 <td><?php echo $campaign['amount']; ?></td>
+                 <td><?php if($campaign['invoice'] == 1){ echo "sent"; } ?></td>
+                 <td><?php if($campaign['payment'] == 1){ echo "paid"; } else{ echo "unpaid";} ?></td>
+                 <td><?php echo count($qty); ?></td>
+                 <td><?php echo $campaign['amount'] * count($qty); ?></td>
+             </tr>
+             <?php } } ?>
+            </tbody>
+        </table>
+    </div>
+</div>
 <!-- end col -->
 
 </div><!-- end row -->
@@ -120,6 +158,7 @@
 2016 - 2017 © Island Promotions.
 </footer>
 <!-- End Footer -->
+
 
 
 <!-- Right Sidebar -->
@@ -259,31 +298,7 @@ var resizefunc = [];
 <!-- App js -->
 <script src="<?php echo base_url()?>assets/js/jquery.core.js"></script>
 <script src="<?php echo base_url()?>assets/js/jquery.app.js"></script>
-<script type="text/javascript">
-  $(document).on('click', '#login', function(){
- if($(this).prop('checked') == true)
-  {
-  $(this).val("1");
-  $('#username').removeAttr("disabled");
-  $('#password').removeAttr("disabled");
- }
- else {
-  $(this).val("0");
-  $('#username').attr("disabled", "disabled");
-  $('#password').attr("disabled", "disabled");
- }
-});
 
-  $(document).on('click', '#admin', function(){
- if($(this).prop('checked') == true)
-  {
-  $(this).val("1");
- }
- else {
-  $(this).val("0");
- }
-});
-</script>
 </body>
 
 <!-- Mirrored from coderthemes.com/uplon/horizontal/form-elements.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Dec 2017 14:10:05 GMT -->

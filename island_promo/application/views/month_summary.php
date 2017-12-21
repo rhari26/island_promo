@@ -60,27 +60,16 @@
                 </div>
                 <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
                    <fieldset class="form-group">
+
                        <label for="year">Year</label>
-                       <input type="text" class="form-control" id="year" name="year"
-                       placeholder="Year" />
-                   </fieldset>
-                </div>
-                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
-                   <fieldset class="form-group">
-                       <label for="date">Date</label>
-                       <input type="date" class="form-control" id="date" name="date"
-                       placeholder="Date" />
-                   </fieldset>
-                </div>
-                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
-                   <fieldset class="form-group">
-                        <label for="client">Client Name</label>
-                        <select class="form-control" id="client" name="client">
+                        <select class="form-control" id="year" name="year">
                         <option value="">Select</option>
-                        <?php if(!empty($clients)){ ?>
-                        <?php foreach($clients as $client){ ?>
-                        <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
-                        <?php } } ?>
+                        <?php $i = 2010;
+                        while($i <= 2040){
+                         ?>
+                        
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option> 
+                        <?php $i++; }?>
                         </select>
                    </fieldset>
                 </div>
@@ -109,6 +98,7 @@
                  <th>Payment</th>
                  <th>Inv</th>
                  <th>Qty</th>
+                 <th>Total</th>
                 </tr>
             </thead>
 
@@ -118,6 +108,8 @@
              fhgdtfhdf
              <?php foreach($campaigns as $campaign){
                  $client = $this->application->get_client_data($campaign['client_id']);
+
+                 $qty = $this->application->get_camp_date($campaign['id']);
                  $dates = $this->application->disp_camp_date($campaign['id']);
               ?>
              <tr>
@@ -129,7 +121,8 @@
                  <td><?php if($campaign['invoice'] == 1){ echo "sent"; } ?></td>
                  <td><?php if($campaign['payment'] == 1){ echo "paid"; } else{ echo "unpaid";} ?></td>
                  <td><a href="<?php echo site_url("user_authentication/invoice/".$campaign['id']); ?>">Invoice</a></td>
-                 <td></td>
+                 <td><?php echo count($qty); ?></td>
+                 <td><?php echo $campaign['amount'] * count($qty); ?></td>
              </tr>
              <?php } } ?>
             </tbody>

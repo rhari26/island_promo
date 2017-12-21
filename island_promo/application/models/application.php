@@ -95,7 +95,7 @@ Class Application extends CI_Model {
  	}
  	else
  	{
- 		$query = $this->db->query("select * from clients where id = '".$id."' order by id desc");
+ 		$query = $this->db->query("select * from clients where user_id = '".$id."' order by id desc");
  	}
 
 		$result = $query->result_array();
@@ -113,6 +113,23 @@ Class Application extends CI_Model {
  	else
  	{
  		$query = $this->db->query("select * from campaign where id = '".$id."' order by id desc");
+ 	}
+
+		$result = $query->result_array();
+
+		return $result;
+ }
+
+ public function get_today_campaign($id)
+ {
+ 	$user = $this->users->get_user_data($id);
+ 	if($user[0]['admin'] == true)
+ 	{
+ 		$query = $this->db->query("select * from campaign where id in(select `campaign_id` from `camp_dates` where camp_date = CURDATE()) order by id desc limit 10");
+ 	}
+ 	else
+ 	{
+ 		$query = $this->db->query("select * from campaign where id in(select `campaign_id` from `camp_dates` where camp_date = CURDATE() and id = '"+$id+"') order by id desc limit 10");
  	}
 
 		$result = $query->result_array();
@@ -233,27 +250,43 @@ Class Application extends CI_Model {
 
  }
 
- public function get_dashboard_campaign()
+ public function get_dashboard_campaign($id)
 
 	{
 
-		$query = $this->db->query("select * from campaign order by id desc limit 5");
+  $user = $this->users->get_user_data($id);
+ 	if($user[0]['admin'] == true)
+ 	{
+ 		$query = $this->db->query("select * from campaign order by id desc limit 5");
+ 	}
+ 	else
+ 	{
+ 		$query = $this->db->query("select * from campaign where id = '".$id."' order by id desc limit 5");
+ 	}
 
 		$result = $query->result_array();
 
-		return $result;	
+		return $result;
 
 	}
 
-	public function get_dashboard_client()
+	public function get_dashboard_client($id)
 
 	{
 
-		$query = $this->db->query("select * from clients order by id desc limit 5");
+  $user = $this->users->get_user_data($id);
+ 	if($user[0]['admin'] == true)
+ 	{
+ 		$query = $this->db->query("select * from clients order by id desc limit 5");
+ 	}
+ 	else
+ 	{
+ 		$query = $this->db->query("select * from clients where user_id = '".$id."' order by id desc limit 5");
+ 	}
 
 		$result = $query->result_array();
 
-		return $result;	
+		return $result;
 
 	}
 }

@@ -116,30 +116,41 @@ Add your Campaign.
 </div>
 </div><!-- end col-->
 
-<div class="col-xs-12 col-lg-12 col-xl-4">
+<div class="col-xs-12 col-lg-12 col-xl-8">
 <div class="card-box table-responsive">
-<h4 class="m-t-0 header-title"><b>Clients</b></h4>
+<h4 class="m-t-0 header-title"><b>Today's Campaign</b></h4>
+<p class="text-muted font-13 m-b-30">
+.
+</p>
 
 <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <thead>
 <tr>
-    <th>#</th>
-    <th>Client Name</th>
-    <th>Address</th>
-    <th>Actions</th>
+ <th>#</th>
+ <th>Batch</th>
+ <th>Date</th>
+ <th>Client</th>
+ <th>Title</th>
+ <th>PO No.</th>
+ <th>Actions</th>
 </tr>
 </thead>
 
 
 <tbody>
-<?php if(!empty($clients)){ ?>
-    <?php foreach($clients as $client){ ?>
-    <tr>
-        <th scope="row"><?php echo $client['id']; ?></th>
-        <td><?php echo $client['client_name']; ?></td>
-        <td><?php echo $client['address']; ?></td>
-        <th><a href="<?php echo site_url("edit/edit_client/".$client['id']); ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
-    </tr>
+<?php if(!empty($todays_camp)){ ?>
+<?php foreach($todays_camp as $campaign){
+ $client = $this->application->get_client_data($campaign['client_id']);
+?>
+<tr>
+ <th scope="row"><?php echo $campaign['id']; ?></th>
+ <td><?php echo $campaign['month']."-".$campaign['year']; ?></td>
+ <td><?php echo $campaign['camp_date']; ?></td>
+ <td><?php echo $client[0]['client_name']; ?></td>
+ <td><?php echo $campaign['subject']; ?></td>
+ <td><?php echo $campaign['po_no']; ?></td>
+ <th><a href="<?php echo site_url("edit/edit_campaign/".$campaign['id']) ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
+</tr>
 <?php } } ?>
 </tbody>
 </table>

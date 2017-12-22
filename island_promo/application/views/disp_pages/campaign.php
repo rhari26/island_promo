@@ -30,6 +30,7 @@
                              <th>Date</th>
                              <th>Client</th>
                              <th>Title</th>
+                             <th>Image</th>
                              <th>PO No.</th>
                              <th>Actions</th>
                             </tr>
@@ -48,6 +49,11 @@
                              <td><?php echo $dates; ?></td>
                              <td><?php echo $client[0]['client_name']; ?></td>
                              <td><?php echo $campaign['subject']; ?></td>
+                             <td>
+                                <a href="">
+                                    <img src="<?php echo base_url(); ?>assets/images/logo.jpg" alt="" class="table-img">
+                                </a>
+                             </td>
                              <td><?php echo $campaign['po_no']; ?></td>
                              <th><a href="<?php echo site_url("edit/edit_campaign/".$campaign['id']) ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>
                          </tr>

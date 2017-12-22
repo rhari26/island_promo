@@ -52,8 +52,7 @@ if($tmp['id'] != "")
                 <div class="card-box mb-0">
                     <div class="text-center m-t-20">
                         <a href="index.html" class="logo">
-                            <i class="zmdi zmdi-group-work icon-c-logo"></i>
-                            <span>Island Promotion</span>
+                            <img alt="shortcut icon" class="logo-img" src="<?php echo base_url(); ?>assets/images/logo.jpg" />
                         </a>
                     </div>
                     <div class="m-t-10 p-20">

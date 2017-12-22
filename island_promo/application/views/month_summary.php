@@ -35,60 +35,47 @@
     <div class="card-box">
       <?php echo form_open('options/month_summary'); ?>
       <div class="row">
-        <div class="col-lg-11 col-sm-11 col-xs-11 col-md-11 col-xl-11">
-            <div class="row">
-                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
-                   <fieldset class="form-group">
+        <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 col-xl-4">
+           <fieldset class="form-group">
 
-                       <label for="month">Month</label>
-                        <select class="form-control" id="month" name="month">
-                        <option value="">Select</option>
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                        </select>
-                   </fieldset>
-                </div>
-                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
-                   <fieldset class="form-group">
-                       <label for="year">Year</label>
-                       <input type="text" class="form-control" id="year" name="year"
-                       placeholder="Year" />
-                   </fieldset>
-                </div>
-                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
-                   <fieldset class="form-group">
-                       <label for="date">Date</label>
-                       <input type="date" class="form-control" id="date" name="date"
-                       placeholder="Date" />
-                   </fieldset>
-                </div>
-                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
-                   <fieldset class="form-group">
-                        <label for="client">Client Name</label>
-                        <select class="form-control" id="client" name="client">
-                        <option value="">Select</option>
-                        <?php if(!empty($clients)){ ?>
-                        <?php foreach($clients as $client){ ?>
-                        <option value="<?php echo $client['id']; ?>"><?php echo $client['client_name']; ?></option>
-                        <?php } } ?>
-                        </select>
-                   </fieldset>
-                </div>
-            </div>
+               <label for="month">Month</label>
+                <select class="form-control" id="month" name="month">
+                <option value="">Select</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+                </select>
+           </fieldset>
         </div>
-        <div class="col-lg-1 col-sm-1 col-xs-1 col-md-1 col-xl-1">
-            <label>Filter</label>
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 col-xl-4">
+           <fieldset class="form-group">
+
+               <label for="year">Year</label>
+                <select class="form-control" id="year" name="year">
+                <option value="">Select</option>
+                <?php $i = 2010;
+                while($i <= 2040){
+                 ?>
+                
+                <option value="<?php echo $i; ?>"><?php echo $i; ?></option> 
+                <?php $i++; }?>
+                </select>
+           </fieldset>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 col-xl-4">
+            <fieldset class="form-group">
+                <label>Filter</label>
+                <button type="submit" class="btn btn-primary d-block">Submit</button>
+            </fieldset>
         </div>
       </div>
       
@@ -109,6 +96,7 @@
                  <th>Payment</th>
                  <th>Inv</th>
                  <th>Qty</th>
+                 <th>Total</th>
                 </tr>
             </thead>
 
@@ -118,6 +106,8 @@
              fhgdtfhdf
              <?php foreach($campaigns as $campaign){
                  $client = $this->application->get_client_data($campaign['client_id']);
+
+                 $qty = $this->application->get_camp_date($campaign['id']);
                  $dates = $this->application->disp_camp_date($campaign['id']);
               ?>
              <tr>
@@ -129,7 +119,8 @@
                  <td><?php if($campaign['invoice'] == 1){ echo "sent"; } ?></td>
                  <td><?php if($campaign['payment'] == 1){ echo "paid"; } else{ echo "unpaid";} ?></td>
                  <td><a href="<?php echo site_url("user_authentication/invoice/".$campaign['id']); ?>">Invoice</a></td>
-                 <td></td>
+                 <td><?php echo count($qty); ?></td>
+                 <td><?php echo $campaign['amount'] * count($qty); ?></td>
              </tr>
              <?php } } ?>
             </tbody>

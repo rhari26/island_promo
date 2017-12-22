@@ -35,26 +35,45 @@
     <div class="card-box">
       <?php echo form_open('options/month_summary'); ?>
       <div class="row">
-        <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 col-xl-4">
-           <fieldset class="form-group">
+        <div class="col-lg-11 col-sm-11 col-xs-11 col-md-11 col-xl-11">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
 
-               <label for="month">Month</label>
-                <select class="form-control" id="month" name="month">
-                <option value="">Select</option>
-                <option value="January">January</option>
-                <option value="February">February</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-                <option value="June">June</option>
-                <option value="July">July</option>
-                <option value="August">August</option>
-                <option value="September">September</option>
-                <option value="October">October</option>
-                <option value="November">November</option>
-                <option value="December">December</option>
-                </select>
-           </fieldset>
+                       <label for="month">Month</label>
+                        <select class="form-control" id="month" name="month">
+                        <option value="">Select</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                        </select>
+                   </fieldset>
+                </div>
+                <div class="col-lg-3 col-sm-3 col-xs-6 col-md-3 col-xl-3">
+                   <fieldset class="form-group">
+
+                       <label for="year">Year</label>
+                        <select class="form-control" id="year" name="year">
+                        <option value="">Select</option>
+                        <?php $i = 2010;
+                        while($i <= 2040){
+                         ?>
+
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php $i++; }?>
+                        </select>
+                   </fieldset>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 col-xl-4">
            <fieldset class="form-group">
@@ -65,8 +84,8 @@
                 <?php $i = 2010;
                 while($i <= 2040){
                  ?>
-                
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option> 
+
+                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php $i++; }?>
                 </select>
            </fieldset>
@@ -78,7 +97,7 @@
             </fieldset>
         </div>
       </div>
-      
+
      <?php echo form_close(); ?>
     </div>
 </div><!-- end col -->

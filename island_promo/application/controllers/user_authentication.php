@@ -175,6 +175,17 @@ class User_Authentication extends CI_Controller {
 
 	}
 
+	public function client_summary()
+
+	{
+		$user = $this->session->userdata('logged_in');
+
+		$data['clients'] = $this->application->get_clients($user['id']);
+
+		$this->load->view("client_summary", $data);
+
+	}
+
 	public function campaign()
 
 	{

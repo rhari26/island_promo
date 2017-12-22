@@ -82,22 +82,24 @@ Class Users extends CI_Model {
 	 public function check_username($data)
 
 	{
-		if($data == "" || $data == 0)
+		if($data != "" || $data != 0)
 		{
-			return false;
-		}
-		else{
-		$query = $this->db->query("select * from users where username = '".$data."'");
-		if($query->num_rows() == 1)
+			$query = $this->db->query("select * from users where username = '".$data."'");
+			if($query->num_rows() == 0)
 
-		{
-			return true;
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+			
 		}
 		else
 		{
-			return false;
+			return 0;
 		}
-	}
 	}
 
 

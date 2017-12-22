@@ -65,8 +65,8 @@
                 <?php $i = 2010;
                 while($i <= 2040){
                  ?>
-                
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option> 
+
+                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                 <?php $i++; }?>
                 </select>
            </fieldset>
@@ -88,7 +88,7 @@
             <button type="submit" class="btn btn-primary d-block">Submit</button>
         </div>
       </div>
-      
+
      <?php echo form_close(); ?>
     </div>
 </div><!-- end col -->

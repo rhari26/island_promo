@@ -98,6 +98,8 @@ $address = $this->input->post('address');
 
 $discount = $this->input->post('discount');
 
+$employe = $this->input->post('employe');
+
 $user = $this->session->userdata('logged_in');
 
 $data = array('client_name' => $client_name,
@@ -105,7 +107,8 @@ $data = array('client_name' => $client_name,
 'email' => $email,
 'address' => $address,
 'discount' => $discount,
-'user_id' => $user['id']);
+'user_id'=> $employe,
+'created_by' => $user['id']);
 
 
 $this->application->insert_client($data);

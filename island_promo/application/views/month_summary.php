@@ -76,21 +76,6 @@
             </div>
         </div>
         <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 col-xl-4">
-           <fieldset class="form-group">
-
-               <label for="year">Year</label>
-                <select class="form-control" id="year" name="year">
-                <option value="">Select</option>
-                <?php $i = 2010;
-                while($i <= 2040){
-                 ?>
-
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php $i++; }?>
-                </select>
-           </fieldset>
-        </div>
-        <div class="col-lg-4 col-sm-4 col-xs-4 col-md-4 col-xl-4">
             <fieldset class="form-group">
                 <label>Filter</label>
                 <button type="submit" class="btn btn-primary d-block">Submit</button>

@@ -26,6 +26,7 @@ public function edit_client()
 {
 $data['id'] = $this->uri->segment('3');
 $data['client'] = $this->application->get_client_data($data['id']);
+$data['employes'] = $this->application->get_users();
 
 $this->load->view('edit_pages/client', $data);
 }
@@ -137,13 +138,16 @@ $address = $this->input->post('address');
 
 $discount = $this->input->post('discount');
 
+$employe = $this->input->post('employe');
+
 $user = $this->session->userdata('logged_in');
 
 $data = array('client_name' => $client_name,
 	'comp_name' => $comp_name,
 	'email' => $email,
 	'address' => $address,
-	'discount' => $discount);
+	'discount' => $discount,
+	'user_id' => $employe);
 
 $this->application->update_client($id, $data);
 

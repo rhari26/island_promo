@@ -53,7 +53,8 @@ class User_Authentication extends CI_Controller {
 
 				$session_data = array(
 
-					'id' => $user_info[0]['id']);
+					'id' => $user_info[0]['id'],
+					'admin' => $user_info[0]['admin']);
 
 				$this->session->set_userdata('logged_in', $session_data);
 
@@ -210,8 +211,9 @@ class User_Authentication extends CI_Controller {
 	public function add_client()
 
 	{
+		$data['employes'] = $this->application->get_users();
 
-		$this->load->view("user_auth/add_client");
+		$this->load->view("user_auth/add_client", $data);
 
 	}
 

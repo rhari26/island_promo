@@ -60,6 +60,19 @@
                              <textarea class="form-control" id="address"
                              rows="3" name="address"></textarea>
                          </fieldset>
+                         <?php $tmp = $this->session->userdata('logged_in');
+                         if($tmp['admin'] == 1){ ?>
+                         <fieldset class="form-group">
+                        <label for="employe">Employee</label>
+                        <select class="form-control" id="employe" name="employe">
+                        <option value="">Select</option>
+                        <?php if(!empty($employes)){ ?>
+                        <?php foreach($employes as $employe){ ?>
+                        <option value="<?php echo $employe['id']; ?>"><?php echo $employe['name']; ?></option>
+                        <?php } } ?>
+                        </select>
+                        </fieldset>
+                        <?php } ?>
 
 
 

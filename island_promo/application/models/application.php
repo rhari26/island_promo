@@ -79,7 +79,7 @@ Class Application extends CI_Model {
 
  public function get_users()
  {
- 	$query = $this->db->query("select * from users where admin != '1' order by id desc");
+ 	$query = $this->db->query("select * from users where admin = '0' order by id desc");
 
 		$result = $query->result_array();
 

@@ -61,6 +61,24 @@
                              rows="3" name="address"><?php echo $client[0]['address']; ?></textarea>
                          </fieldset>
 
+                         </fieldset>
+                         <?php $tmp = $this->session->userdata('logged_in');
+                         if($tmp['admin'] == 1){ ?>
+                         <fieldset class="form-group">
+                        <label for="employe">Employee</label>
+                        <select class="form-control" id="employe" name="employe">
+                        <option value="">Select</option>
+                        <?php if(!empty($employes)){ ?>
+                        <?php foreach($employes as $employe){ ?>
+                        <?php if($employe['id'] == $client[0]['user_id']){ ?>
+                        <option value="<?php echo $employe['id']; ?>" selected><?php echo $employe['name']; ?></option>
+                        <?php } else { ?>
+                        <option value="<?php echo $employe['id']; ?>"><?php echo $employe['name']; ?></option>
+                        <?php } } } ?>
+                        </select>
+                        </fieldset>
+                        <?php } ?>
+
 
 
                         <button type="submit" class="btn btn-primary">Submit</button>

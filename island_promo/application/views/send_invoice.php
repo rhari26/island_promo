@@ -77,7 +77,32 @@ $content = '<!DOCTYPE html><html>
 </html>';
 // ob_end_clean();
 $obj_pdf->writeHTML($content, true, false, true, false, '');
-$obj_pdf->Output('output.pdf', 'I');
+$path = base_url()."uploads/output.pdf";
+ob_clean();
+$obj_pdf->Output("uploads/output.pdf", 'F');
+    $this->load->library('email');
+    $config = array();
+    $config['protocol'] = 'smtp';
+    $config['smtp_host'] = 'xxx';
+    $config['smtp_user'] = 'xxx';
+    $config['smtp_pass'] = 'xxx';
+    $config['smtp_port'] = 25;
+    $this->email->initialize($config);
+     
+    $this->email->set_newline("\r\n");
+    
+    $this->email->from('info@islandpromotionlk.com', 'Identification');
+    $this->email->to($client[0]['email']);
+    $this->email->subject('Invoice from Island Promotion');
+    $this->email->message('Hi! '.$client[0]['client_name'].' we have sent you the invoice');
+    $this->email->attach($path);
+    if($this->email->send())
+    {
+        echo "string";
+    }
+
+
+
 
 
 ?>

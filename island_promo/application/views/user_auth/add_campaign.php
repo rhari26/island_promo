@@ -75,9 +75,17 @@ ga('send', 'pageview');
 
  <?php echo form_open_multipart('options/add_campaign'); ?>
 <fieldset class="form-group">
+
 <label for="year">Year</label>
-<input type="text" class="form-control" id="year" name="year"
-placeholder="Year" />
+<select class="form-control" id="year" name="year">
+<option value="">Select</option>
+<?php $i = 2010;
+while($i <= 2040){
+ ?>
+
+<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+<?php $i++; }?>
+</select>
 </fieldset>
 
 <fieldset class="form-group">

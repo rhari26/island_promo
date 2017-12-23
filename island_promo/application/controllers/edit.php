@@ -85,12 +85,18 @@ $sender = $this->input->post('sender');
 
 $user = $this->session->userdata('logged_in');
 
-$filename = time().$month;
+$filename = time()."_".$year;
 
-	     $config['upload_path']   = './uploads/';
-         $config['allowed_types'] = 'gif|jpg|png';
-         $config['max_size']      = 2048000;
-         $config['file_name'] = $filename;
+$campaign_data = $this->application->get_campaign_data($id);
+
+
+
+$config['upload_path']   = './uploads/';
+$config['allowed_types'] = 'gif|jpg|png';
+$config['max_size']      = 2048000;
+$config['file_name'] = $filename;
+
+$this->load->library('upload', $config);
 
 $data = array('year' => $year,
 	'client_id' => $client,
@@ -100,11 +106,19 @@ $data = array('year' => $year,
 	'subject' => $subject,
 	'sender' => $sender);
 
-	if($img != "" && $this->upload->do_upload('userfile'))
-        {
-        	$img = $this->upload->data();
+		if($this->upload->do_upload('userfile'))
+		{
+		$img = $this->upload->data();
 
-        	$data['file'] = $filename;
+		$data['file'] = $img['file_name'];
+
+		if($campaign_data[0]['file'] != ""){
+		$path = base_url()."/uploads/".$campaign_data[0]['file'];
+		unlink($path); }
+		}
+        else
+        {
+        	$data['file'] = $campaign_data[0]['file'];
         }
 
 $this->application->update_campaign($id, $data);

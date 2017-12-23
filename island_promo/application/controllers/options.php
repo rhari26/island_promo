@@ -44,7 +44,9 @@ $sender = $this->input->post('sender');
 
 $user = $this->session->userdata('logged_in');
 
-$filename = time().$month;
+// list($fname, $ext) = explode(".", $img);
+
+$filename = time()."_".$year;
 
 $config['upload_path']   = './uploads/';
 $config['allowed_types'] = 'gif|jpg|png';
@@ -67,7 +69,7 @@ if($this->upload->do_upload('userfile'))
 {
 $img = $this->upload->data();
 
-$data['file'] = $filename;
+$data['file'] = $img['file_name'];
 }
 
 $last_id = $this->application->insert_campaign($data);

@@ -50,9 +50,11 @@
                              <td><?php echo $client[0]['client_name']; ?></td>
                              <td><?php echo $campaign['subject']; ?></td>
                              <td>
+                             <?php if($campaign['file'] != ""){ ?>
                                 <a href="">
-                                    <img src="<?php echo base_url(); ?>assets/images/logo.jpg" alt="" class="table-img">
+                                    <img src="<?php echo base_url(); ?>uploads/<?php echo $campaign['file'];?>" alt="" class="table-img">
                                 </a>
+                                <?php } ?>
                              </td>
                              <td><?php echo $campaign['po_no']; ?></td>
                              <th><a href="<?php echo site_url("edit/edit_campaign/".$campaign['id']) ?>" class="btn-sm btn-primary waves-effect waves-light">Edit</a><a class="btn-sm btn-danger waves-effect waves-light">Delete</a></th>

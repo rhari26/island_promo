@@ -73,16 +73,20 @@ ga('send', 'pageview');
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12 col-xl-6">
 
- <?php echo form_open('edit/update_campaign/'.$id); ?>
+ <?php echo form_open_multipart('edit/update_campaign/'.$id); ?>
 <fieldset class="form-group">
+
 <label for="year">Year</label>
 <select class="form-control" id="year" name="year">
 <option value="">Select</option>
-<option value="2015" <?php if($campaign[0]['year'] == '2015'){echo "selected";} ?>>2015</option>
-<option value="2016" <?php if($campaign[0]['year'] == '2016'){echo "selected";} ?>>2016</option>
-<option value="2017" <?php if($campaign[0]['year'] == '2017'){echo "selected";} ?>>2017</option>
-<option value="2018" <?php if($campaign[0]['year'] == '2018'){echo "selected";} ?>>2018</option>
-<option value="2019" <?php if($campaign[0]['year'] == '2019'){echo "selected";} ?>>2019</option>
+<?php $i = 2010;
+while($i <= 2040){
+ if($campaign[0]['year'] == $i){ ?>
+<option value="<?php echo $i; ?>" selected><?php echo $i; ?></option>
+<?php } else {?>
+<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+<?php }?>
+<?php $i++; }?>
 </select>
 </fieldset>
 

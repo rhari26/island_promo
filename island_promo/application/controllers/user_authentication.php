@@ -198,6 +198,17 @@ class User_Authentication extends CI_Controller {
 
 	}
 
+	public function todays_campaign()
+
+	{
+		$user = $this->session->userdata('logged_in');
+
+		$data['campaigns'] = $this->application->get_todays_campaign($user['id']);
+
+		$this->load->view("disp_pages/todays_campaign", $data);
+
+	}
+
 	public function add_campaign()
 
 	{

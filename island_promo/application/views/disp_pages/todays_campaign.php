@@ -17,9 +17,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box table-responsive">
-                    <h4 class="m-t-0 header-title"><b>Campaigns</b></h4>
+                    <h4 class="m-t-0 header-title"><b>Today's Campaign</b></h4>
                     <p class="text-muted font-13 m-b-30">
-                        Manage your Campaign.
+                        Campaign.
                     </p>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0" width="100%">

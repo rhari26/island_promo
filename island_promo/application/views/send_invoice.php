@@ -6,7 +6,7 @@ $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 $obj_pdf->SetCreator(PDF_CREATOR);
 $title = "PDF Report";
 $obj_pdf->SetTitle($title);
-$obj_pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $title, PDF_HEADER_STRING);
+// $obj_pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, $title, PDF_HEADER_STRING);
 $obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $obj_pdf->SetDefaultMonospacedFont('helvetica');
@@ -77,29 +77,37 @@ $content = '<!DOCTYPE html><html>
 </html>';
 // ob_end_clean();
 $obj_pdf->writeHTML($content, true, false, true, false, '');
-$path = base_url()."uploads/output.pdf";
+$path = base_url()."uploads/invoice.pdf";
 ob_clean();
-$obj_pdf->Output("uploads/output.pdf", 'F');
-    $this->load->library('email');
-    $config = array();
-    $config['protocol'] = 'smtp';
-    $config['smtp_host'] = 'xxx';
-    $config['smtp_user'] = 'xxx';
-    $config['smtp_pass'] = 'xxx';
-    $config['smtp_port'] = 25;
-    $this->email->initialize($config);
-     
-    $this->email->set_newline("\r\n");
-    
-    $this->email->from('info@islandpromotionlk.com', 'Identification');
-    $this->email->to($client[0]['email']);
-    $this->email->subject('Invoice from Island Promotion');
-    $this->email->message('Hi! '.$client[0]['client_name'].' we have sent you the invoice');
-    $this->email->attach($path);
-    if($this->email->send())
-    {
-        echo "string";
-    }
+$obj_pdf->Output("uploads/invoice.pdf", 'FI');
+$to = $client[0]['email'];
+$from = "info@islandpromotionlk.com";
+$subject = "Invoice from Island Promotion";
+$msg = 'Hi! '.$client[0]['client_name'].' we have sent you the invoice';
+$random_hash = md5(date('r', time()));
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "\r\nContent-Type: multipart/mixed; boundary=\"PHP-mixed-".$random_hash."\""; 
+
+// More headers
+ 
+$headers .= 'From: <info@islandpromotionlk.com>' . "\r\n";
+$headers .= 'Cc: info@islandpromotionlk.com' . "\r\n";
+
+$message = "Content-Type: text/html; charset=\"iso-8859-1\"\r\n"
+  ."Content-Transfer-Encoding: 7bit\r\n\r\n"
+  ."Hi! <b>".$client[0]['client_name']."</b> we have sent you the invoice";
+$file = file_get_contents($path);
+$message .= "Content-Type: application/pdf; name=\"invoice.pdf\"\r\n"
+  ."Content-Transfer-Encoding: base64\r\n"
+  ."Content-disposition: attachment; file=\"invoice.pdf\"\r\n"
+  ."\r\n"
+  .chunk_split(base64_encode($file))
+  ."--1a2a3a--";
+$sent = mail($to,$subject,$message,$headers);
+if($sent)
+{
+    echo "sent";
+}
 
 
 

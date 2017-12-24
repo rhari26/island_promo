@@ -101,7 +101,7 @@ $client = $this->application->get_client_data($campaign[0]['client_id']);
 <div class="hidden-print">
     <div class="float-right">
         <a href="javascript:window.print()" class="btn btn-dark waves-effect waves-light"><i class="fa fa-print"></i></a>
-        <a href="<?php echo site_url("options/send_invoice/".$campaign[0]['id']);?>" class="btn btn-primary waves-effect waves-light">Submit</a>
+        <a href="<?php echo site_url("options/send_invoice/".$campaign[0]['id']);?>" class="btn btn-primary waves-effect waves-light">Send Invoice</a>
     </div>
     <div class="clearfix"></div>
 </div>

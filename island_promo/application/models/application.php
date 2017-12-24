@@ -112,7 +112,24 @@ Class Application extends CI_Model {
  	}
  	else
  	{
- 		$query = $this->db->query("select * from campaign where id = '".$id."' order by id desc");
+ 		$query = $this->db->query("select * from campaign where user_id = '".$id."' order by id desc");
+ 	}
+
+		$result = $query->result_array();
+
+		return $result;
+ }
+
+ public function get_todays_campaign($id)
+ {
+ 	$user = $this->users->get_user_data($id);
+ 	if($user[0]['admin'] == true)
+ 	{
+ 		$query = $this->db->query("select * from campaign where id in(select campaign_id from camp_dates where camp_date = CURDATE()) order by id desc");
+ 	}
+ 	else
+ 	{
+ 		$query = $this->db->query("select * from campaign where id in(select campaign_id from camp_dates where camp_date = CURDATE()) and user_id = '".$id."' order by id desc");
  	}
 
 		$result = $query->result_array();

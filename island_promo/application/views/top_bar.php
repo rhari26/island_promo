@@ -65,6 +65,7 @@
                         <ul class="submenu ">
                             <li><a href="<?php echo site_url("user_authentication/add_campaign"); ?>">Add Campaign</a></li>
                             <li><a href="<?php echo site_url("user_authentication/campaign"); ?>">Manage Campaign</a></li>
+                            <li><a href="<?php echo site_url("user_authentication/todays_campaign"); ?>">Today's Campaign</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
